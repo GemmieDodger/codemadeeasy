@@ -1,9 +1,42 @@
-import Header from "./components/Header";
-import './css/government_defaults.css';
+import React from "react";
+import "./css/government_defaults.css";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+import "./app.css"
+
+import Home from "./views/Home";
+import Quiz from "./views/Quiz";
+import Admin from "./views/Admin";
+import CreateQuiz from "./views/CreateQuiz";
+import EditQuiz from "./views/EditQuiz";
+import Learn from "./views/Learn";
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+
+import { AuthProvider } from "./authProvider";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 function App() {
   return (
     <div className="App">
-      <Header />
+      <BrowserRouter>
+        <AuthProvider>
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/quiz/:id/:quizname" element={<Quiz />} />
+              <Route exact path="/admin" element={<Admin />} />
+              <Route exact path="/admin/create" element={<CreateQuiz />} />
+              <Route
+                exact
+                path="/admin/edit/quiz/:id/:quizname"
+                element={<EditQuiz />}
+              />
+            </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,16 +1,18 @@
-html {
+#app {
   font-family: "Courier New", "Comic Sans", cursive;
   font: "Courier New";
-  background-color: #ffffff;
+  margin: 0;
+  height: 100vh;
+  color: #ffffff;
 }
 
-.background-light {
+.background-bright {
   background-color: #ffffff;
 }
-.background-darkest {
+.background-night {
   background-color: #00171f;
 }
-.background-dark {
+.background-mid {
   background-color: #003459;
 }
 .background-bright {
@@ -19,13 +21,13 @@ html {
 .background-brightest {
   background-color: #00a8e8;
 }
-.text-light {
+.text-bright {
   color: #ffffff;
 }
-.text-darkest {
+.text-night {
   color: #00171f;
 }
-.text-dark {
+.text-mid {
   color: #003459;
 }
 .text-bright {

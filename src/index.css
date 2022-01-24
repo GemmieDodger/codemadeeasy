@@ -6,9 +6,12 @@ code {
     font-family: 'Courier New';
   }
   body {
-    /* margin: 0; */
     font-family: 'Courier New';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: gray;
   }
+
+html, body, #app, #root, #app>div {
+  height: 100%;
+  margin: 0;
+}

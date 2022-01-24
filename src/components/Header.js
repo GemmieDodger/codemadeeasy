@@ -8,12 +8,13 @@ import Nav from "react-bootstrap/Nav";
 import logo from "../resources/logo/codemadeeasy_logo.png";
 import "../css/government_defaults.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Navbar
       expand="lg"
-      className="pt-2 pb-2 background-darkest"
+      className="pt-2 pb-2 background-night"
       data-testid="header"
+      variant="dark" 
     >
       <Container>
         <a href="/" className="navbar-left">
@@ -25,27 +26,40 @@ const Header = () => {
           />
         </a>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end text-white">
           <Nav className="me-auto">
-            <Nav.Link href="/" className="bg-transparent text-black">
+            <Nav.Link href="/" className="bg-transparent text-white">
               Home
             </Nav.Link>
           </Nav>
           <Nav className="me-auto">
-            <Nav.Link href="/" className="bg-transparent text-black">
+            <Nav.Link href="/learn" className="bg-transparent text-white">
               Learn
             </Nav.Link>
           </Nav>
-          <Nav className="me-auto">
-            <Nav.Link href="/" className="bg-transparent text-black">
+          {/* <Nav className="me-auto">
+            <Nav.Link href="/play" className="bg-transparent text-white">
               Play
             </Nav.Link>
-          </Nav>
+          </Nav> */}
           <Navbar.Text>
-            <Button className="bg-transparent" id="login-button">
-              Login
-            </Button>
-          </Navbar.Text>
+          {!props.user ? 
+              <>
+              <Nav.Link href="/login">
+                <Button className="bg-transparent" id="login-button">Login</Button>
+              </Nav.Link>
+              </>
+              : 
+              <>
+              <Nav.Link to="/logout">
+                <Button className="bg-transparent" id="logout-button" onClick={props.logout}>Logout</Button>
+              </Nav.Link>
+              </>
+              }
+              </Navbar.Text>
+
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
