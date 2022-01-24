@@ -5,7 +5,7 @@
   "engines": {
     "node": "16.x",
     "npm": "7.x"
-    },
+  },
   "dependencies": {
     "@codemirror/basic-setup": "^0.19.1",
     "@codemirror/lang-javascript": "^0.19.6",
@@ -22,7 +22,6 @@
     "react-firebaseui": "^6.0.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

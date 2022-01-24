@@ -1,0 +1,45 @@
+html {
+    font-family: "Courier New", "Comic Sans", cursive;
+    font: 'Courier New';
+    background-color: #ffffff;
+}
+
+.background-light {
+    background-color: #ffffff;
+}
+.background-darkest {
+    background-color: #00171f;
+}
+.background-dark {
+    background-color: #003459;
+}
+.background-bright {
+    background-color: #007ea7;
+}
+.background-brightest {
+    background-color: #00a8e8;
+}
+.text-light {
+    color: #ffffff;
+}
+.text-darkest {
+    color: #00171f;
+}
+.text-dark {
+    color: #003459;
+}
+.text-bright {
+    color: #007ea7;
+}
+.text-brightest {
+    color: #00a8e8;
+}
+
+#login-button {
+        color: #ffffff;
+        border: 2px solid #00a8e8; 
+}
+.logout-button {
+    color: #ffffff;
+    border: 2px solid red; 
+}
