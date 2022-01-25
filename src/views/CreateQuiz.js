@@ -34,7 +34,7 @@ const CreateQuiz = (props) => {
       .catch((error) => {
         console.error("Error adding document: ", error);
       });
-      navigate(`/`);
+      navigate(`/admin`);
   };
   if (!loading) {
   return (
@@ -43,8 +43,8 @@ const CreateQuiz = (props) => {
       <Header user={user} logout={logout} />
         <div>
           <Container>
-            <Row className="background-mid text-light p-4 m-5">
-              <h2>ADD A QUIZ</h2>
+            <Row className="background-mid text-white border border-white  p-4 m-5">
+              <h2 className=" text-brightest">ADD A QUIZ</h2>
               <Form onSubmit={onSubmitQuiz}>
                 <Form.Group className="mb-3" controlId="quizName">
                   <Form.Control
@@ -56,7 +56,7 @@ const CreateQuiz = (props) => {
                     onChange={onChangeQuiz}
                   />
                 </Form.Group>
-                <Button variant="primary" className="m-4 " type="submit">
+                <Button  className="background-bright text-white m-4 " type="submit">
                   Create new quiz
                 </Button>
               </Form>

@@ -11,7 +11,7 @@ const SubHeader = (props) => {
   }
 
   return (
-    <h4 className="text-center text-brightest" variant="quizAlign">
+    <h4 className="text-center text-brightest m-2" variant="quizAlign">
       You are {statement} the {props.quizName} quiz
     </h4>
   );

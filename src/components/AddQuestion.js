@@ -97,7 +97,7 @@ const AddQuestion = (props) => {
               Would you like to provide some code for this question?
             </Form.Label>
             <Row>
-              <Form.Text >
+              <Form.Text className="text-white">
                 Write code in text, with no indents or formatting. JavaScript is
                 formatted on display.
               </Form.Text>

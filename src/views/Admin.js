@@ -50,24 +50,7 @@ const Admin = (props) => {
       <Header user={user} logout={logout} />
 
       {loading ? (
-        <>
-          <div>
-            <Link
-              className="text-decoration-none"
-              to={{ pathname: `/admin/create` }}
-            >
-              <Card
-                style={{ height: 250 }}
-                className="background-mid d-flex text-success"
-              >
-                <Card.Body className="align-items-center d-flex justify-content-center">
-                  <h3>Create quiz</h3>
-                </Card.Body>
-              </Card>
-            </Link>
-          </div>
-          <Loading />
-        </>
+        <Loading />
       ) : state.quizzes.length > 0 ? (
         <>
           <Container>
@@ -80,10 +63,7 @@ const Admin = (props) => {
                     passedProps: { user: user },
                   }}
                 >
-                  <Card
-                    style={{ height: 250 }}
-                    className=" d-flex "
-                  >
+                  <Card style={{ height: 250 }} className=" d-flex ">
                     <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
                       <h3>Create quiz</h3>
                     </Card.Body>
@@ -100,12 +80,9 @@ const Admin = (props) => {
                         passedProps: { quizName: quiz.quizName },
                       }}
                     >
-                      <Card
-                        style={{ height: 250 }}
-                        className="d-flex"
-                      >
+                      <Card style={{ height: 250 }} className="d-flex">
                         <Card.Body className="align-items-center d-flex background-mid text-white justify-content-center">
-                          <h3>Edit {quiz.quizName} quiz</h3>
+                          <h3>Edit {quiz.quizName} Quiz</h3>
                         </Card.Body>
                       </Card>
                     </Link>
@@ -116,7 +93,26 @@ const Admin = (props) => {
           </Container>
         </>
       ) : (
-        <ErrorMessage type="quizzes" />
+        <>
+          <Row className="g-4 mt-2 text-center justify-content-center">
+            <Col xs={12} md={4}>
+              <Link
+                className="text-decoration-none"
+                to={{
+                  pathname: `/admin/create`,
+                  passedProps: { user: user },
+                }}
+              >
+                <Card style={{ height: 250 }} className=" d-flex ">
+                  <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
+                    <h3>Create quiz</h3>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </Col>
+          </Row>
+          <ErrorMessage type="quizzes" />
+        </>
       )}
     </>
   );

@@ -37,7 +37,7 @@ const CodeBox = (props) => {
 
   return (
     <>
-    <div className="bg-secondary" style={{ minHeight: '100px' }} ref={editor}></div> 
+    <div className="background-bright" style={{ minHeight: '100px' }} ref={editor}></div> 
     </>
   );
 };

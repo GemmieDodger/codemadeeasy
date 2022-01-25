@@ -26,13 +26,13 @@ const ShowModal = (props) => {
   }
   return (
     <>
-      <Modal show={show} onHide={props.handleClose}>
+      <Modal className="background-night border border-white  text-brightest  " show={show} onHide={props.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{statement}</Modal.Title>
         </Modal.Header>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.handleClose}>
+          <Button className="background-bright text-white" onClick={props.handleClose}>
             Close
           </Button>
         </Modal.Footer>

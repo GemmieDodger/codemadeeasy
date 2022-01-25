@@ -14,7 +14,7 @@ const Header = (props) => {
       expand="lg"
       className="pt-2 pb-2 background-night"
       data-testid="header"
-      variant="dark" 
+      variant="dark"
     >
       <Container>
         <a href="/" className="navbar-left">
@@ -37,29 +37,41 @@ const Header = (props) => {
               Learn
             </Nav.Link>
           </Nav>
+          {props.user && (
+            <Nav className="me-auto">
+              <Nav.Link href="/admin" className="bg-transparent text-white">
+                Admin
+              </Nav.Link>
+            </Nav>
+          )}
           {/* <Nav className="me-auto">
             <Nav.Link href="/play" className="bg-transparent text-white">
               Play
             </Nav.Link>
           </Nav> */}
           <Navbar.Text>
-          {!props.user ? 
+            {!props.user ? (
               <>
-              <Nav.Link href="/login">
-                <Button className="bg-transparent" id="login-button">Login</Button>
-              </Nav.Link>
+                <Nav.Link href="/login">
+                  <Button className="bg-transparent" id="login-button">
+                    Login
+                  </Button>
+                </Nav.Link>
               </>
-              : 
+            ) : (
               <>
-              <Nav.Link href="/logout">
-                <Button className="bg-transparent" id="logout-button" onClick={props.logout}>Logout</Button>
-              </Nav.Link>
+                <Nav.Link href="/logout">
+                  <Button
+                    className="bg-transparent"
+                    id="logout-button"
+                    onClick={props.logout}
+                  >
+                    Logout
+                  </Button>
+                </Nav.Link>
               </>
-              }
-              </Navbar.Text>
-
-
-
+            )}
+          </Navbar.Text>
         </Navbar.Collapse>
       </Container>
     </Navbar>
