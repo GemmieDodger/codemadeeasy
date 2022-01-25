@@ -4,15 +4,18 @@ const SubHeader = (props) => {
   let statement = "";
   switch (props.type) {
     case "play":
-      statement = "playing";
+      statement = `You are playing the ${props.quizName} quiz`;
+      break;  
+      case "codeeditor":
+      statement = "Code Editor";
       break;  
   default:
-    statement = "editing";
+    statement = `You are editingthe ${props.quizName} quiz`;
   }
 
   return (
-    <h4 className="text-center text-brightest m-2" variant="quizAlign">
-      You are {statement} the {props.quizName} quiz
+    <h4 className="text-center text-brightest m-2" >
+     {statement}
     </h4>
   );
 };

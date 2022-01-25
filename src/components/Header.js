@@ -37,6 +37,11 @@ const Header = (props) => {
               Learn
             </Nav.Link>
           </Nav>
+          <Nav className="me-auto">
+            <Nav.Link href="/play" className="bg-transparent text-white">
+              Play
+            </Nav.Link>
+          </Nav>
           {props.user && (
             <Nav className="me-auto">
               <Nav.Link href="/admin" className="bg-transparent text-white">
@@ -44,11 +49,7 @@ const Header = (props) => {
               </Nav.Link>
             </Nav>
           )}
-          {/* <Nav className="me-auto">
-            <Nav.Link href="/play" className="bg-transparent text-white">
-              Play
-            </Nav.Link>
-          </Nav> */}
+
           <Navbar.Text>
             {!props.user ? (
               <>

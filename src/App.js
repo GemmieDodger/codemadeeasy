@@ -8,6 +8,8 @@ import Admin from "./views/Admin";
 import CreateQuiz from "./views/CreateQuiz";
 import EditQuiz from "./views/EditQuiz";
 import Learn from "./views/Learn";
+import Play from "./views/Play";
+import CodeEditor from "./views/CodeEditor";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 
@@ -24,6 +26,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/learn" element={<Learn />} />
+              <Route path="/play" element={<Play />} />
+              <Route path="/play/codeeditor" element={<CodeEditor />} />
               <Route path="/learn/quiz/:id/:quizname" element={<Quiz />} />
               <Route exact path="/admin" element={<Admin />} />
               <Route exact path="/admin/create" element={<CreateQuiz />} />
