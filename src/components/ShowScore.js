@@ -24,7 +24,7 @@ const ShowScore = (props) => {
       <>
       <Row className="bg-dark text-bright p-4 m-5">
       
-        <h3>Incorrect answers </h3>
+        <h3 id="incorrectAnswers">Incorrect answers </h3>
           {props.incorrectQuestions.map((question, index) => (
             <>
               <Row >

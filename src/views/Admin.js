@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../Firebase";
 
-import { Link } from "react-router-dom";
 import ErrorMessage from "../components/ErrorMessage";
 import Loading from "../components/Loading";
+import Header from "../components/Header";
 
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useAuth } from "../authProvider";
-
-import Header from "../components/Header";
+import { Link, useLocation } from "react-router-dom";
 
 const Admin = (props) => {
   const { user, loading, logout } = useAuth();
+  const {hostname} = window.location;
   const [state, setState] = useState({
     quizzes: [],
   });
@@ -53,7 +53,7 @@ const Admin = (props) => {
         <Loading />
       ) : state.quizzes.length > 0 ? (
         <>
-          <Container>
+          <Container data-testid="admin">
             <Row className="g-4 mt-2 text-center justify-content-center">
               <Col xs={12} md={4}>
                 <Link
@@ -70,25 +70,28 @@ const Admin = (props) => {
                   </Card>
                 </Link>
               </Col>
-              {state.quizzes.map((quiz) => (
-                <Col key={quiz.key} xs={12} md={4}>
-                  <div data-label="quiz">
-                    <Link
-                      className="text-decoration-none"
-                      to={{
-                        pathname: `/admin/edit/quiz/${quiz.key}/${quiz.quizName}`,
-                        passedProps: { quizName: quiz.quizName },
-                      }}
-                    >
-                      <Card style={{ height: 250 }} className="d-flex">
-                        <Card.Body className="align-items-center d-flex background-mid text-white justify-content-center">
-                          <h3>Edit {quiz.quizName} Quiz</h3>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </div>
-                </Col>
-              ))}
+              {state.quizzes.map( 
+                (quiz) =>
+                    <>
+                      <Col key={quiz.key} xs={12} md={4}>
+                        <div data-label="quiz">
+                          <Link
+                            className="text-decoration-none"
+                            to={{
+                              pathname: `/admin/edit/quiz/${quiz.key}/${quiz.quizName}`,
+                              passedProps: { quizName: quiz.quizName },
+                            }}
+                          >
+                            <Card style={{ height: 250 }} className="d-flex">
+                              <Card.Body className="align-items-center d-flex background-mid text-white justify-content-center">
+                                <h3>Edit {quiz.quizName} Quiz</h3>
+                              </Card.Body>
+                            </Card>
+                          </Link>
+                        </div>
+                      </Col>
+                    </>
+              )}
             </Row>
           </Container>
         </>
