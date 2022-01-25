@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 import logo from "../resources/logo/codemadeeasy_logo.png";
-import "../css/government_defaults.css";
+
 
 const Header = (props) => {
   return (

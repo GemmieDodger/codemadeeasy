@@ -1,8 +1,6 @@
 import React from "react";
-import "./css/government_defaults.css";
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import "./app.css"
 
 import Home from "./views/Home";
 import Quiz from "./views/Quiz";
