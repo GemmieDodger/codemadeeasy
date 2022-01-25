@@ -43,7 +43,7 @@ const CreateQuiz = (props) => {
       <Header user={user} logout={logout} />
         <div>
           <Container>
-            <Row className="bg-dark text-light p-4 m-5">
+            <Row className="background-mid text-light p-4 m-5">
               <h2>ADD A QUIZ</h2>
               <Form onSubmit={onSubmitQuiz}>
                 <Form.Group className="mb-3" controlId="quizName">

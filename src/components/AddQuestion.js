@@ -74,11 +74,11 @@ const AddQuestion = (props) => {
   const { answerOptions, code, questionText } = newQuestion;
 
   return (
-    <Form className="bg-dark text-light p-4 m-5" onSubmit={onSubmit}>
+    <Form className="border border-white background-mid text-white p-4 m-5" onSubmit={onSubmit}>
       <Row>
         <Col>
           <div className="mb-1">
-            <h2>ADD NEW QUESTION</h2>
+            <h2 className="text-brightest">ADD NEW QUESTION</h2>
           </div>
           <Form.Group className="mb-3" controlId="questionText">
             <Form.Label>What question would you like to ask?</Form.Label>
@@ -94,10 +94,10 @@ const AddQuestion = (props) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="code">
             <Form.Label>
-              Would you like to provide some code for this question?{" "}
+              Would you like to provide some code for this question?
             </Form.Label>
             <Row>
-              <Form.Text className="text-muted">
+              <Form.Text >
                 Write code in text, with no indents or formatting. JavaScript is
                 formatted on display.
               </Form.Text>
@@ -205,7 +205,7 @@ const AddQuestion = (props) => {
         </Col>
       </Row>
       <Row>
-        <Button variant="primary" className="mt-4" type="submit">
+        <Button className="mt-4 background-bright text-white " type="submit">
           Add Question
         </Button>
       </Row>

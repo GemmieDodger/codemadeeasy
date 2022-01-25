@@ -6,42 +6,52 @@
   color: #ffffff;
 }
 
-.background-bright {
+
+.background-white {
   background-color: #ffffff;
 }
+/* General background */
 .background-night {
   background-color: #00171f;
 }
+/* Cards */
 .background-mid {
   background-color: #003459;
 }
+/* Clickable w. text-white*/
 .background-bright {
-  background-color: #007ea7;
+  background-color: #007ea7  !important; 
 }
 .background-brightest {
   background-color: #00a8e8;
 }
+/* paragraphs - can use default text-white */
 .text-bright {
   color: #ffffff;
 }
+
 .text-night {
   color: #00171f;
 }
+/**/
 .text-mid {
   color: #003459;
 }
+/**/
 .text-bright {
   color: #007ea7;
 }
+/* Headers / Announcements */
 .text-brightest {
   color: #00a8e8;
 }
+/* Card Text: text-white */
 
 #login-button {
   color: #ffffff;
   border: 2px solid #00a8e8;
 }
-.logout-button {
+#logout-button {
   color: #ffffff;
   border: 2px solid red;
 }

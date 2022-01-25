@@ -51,7 +51,7 @@ const Header = (props) => {
               </>
               : 
               <>
-              <Nav.Link to="/logout">
+              <Nav.Link href="/logout">
                 <Button className="bg-transparent" id="logout-button" onClick={props.logout}>Logout</Button>
               </Nav.Link>
               </>

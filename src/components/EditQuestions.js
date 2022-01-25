@@ -153,8 +153,8 @@ const EditQuestions = (props) => {
           ""
         )}
         {questions.length > 0 && (
-          <Row className="bg-dark text-light p-4 m-5">
-            <h2>UPDATE QUESTIONS</h2>
+          <Row className="background-mid text-white border border-white p-4 m-5">
+            <h2 className=" text-brightest">UPDATE QUESTIONS</h2>
 
             <Form onSubmit={onSubmitQuestions}>
               {questions.map((question, index) => (
@@ -184,7 +184,7 @@ const EditQuestions = (props) => {
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="code">
                         <Row>
-                          <Form.Text className="text-muted">
+                          <Form.Text className="text-white">
                             Write code in text, with no indents or formatting.
                             JavaScript is formatted on display.
                           </Form.Text>
@@ -198,15 +198,6 @@ const EditQuestions = (props) => {
                           onChange={onChangeQuestions}
                         />
                       </Form.Group>
-                      <Row>
-                        <Button
-                          onClick={deleteQuestion.bind(this, question.key)}
-                          key={index}
-                          className="btn-danger mt-4"
-                        >
-                          Delete
-                        </Button>
-                      </Row>
                     </Col>
                     <Col>
                       <Stack gap={3} className="m-auto mt-2">
@@ -329,13 +320,24 @@ const EditQuestions = (props) => {
                         </Row>
                       </Stack>
                     </Col>
+                    <Row>
+                        <Button
+                          onClick={deleteQuestion.bind(this, question.key)}
+                          key={index}
+                          className="btn-danger m-3 "
+                        >
+                          Delete
+                        </Button>
+                      </Row>
                   </Row>
                   <hr />
                 </>
               ))}
-              <Button variant="primary" className="m-4 " type="submit">
+              <Row>
+              <Button className="background-bright text-white mt-4" type="submit">
                 Save updates
               </Button>
+              </Row>
             </Form>
           </Row>
         )}

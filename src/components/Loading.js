@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 const Loading = (props) => {
   return (
     <>
-      <Col className="bg-dark text-light p-4 m-5 text-center">
+      <Col className="text-bright p-4 m-5 text-center">
         <Row className="p-5">
           <h3>Loading...</h3>
         </Row>

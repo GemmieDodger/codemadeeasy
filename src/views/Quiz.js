@@ -145,10 +145,10 @@ const Quiz = (props) => {
                     </>
                   ) : (
                     <>
-                    <SubHeader quizName={quizName} />
+                    <SubHeader quizName={quizName} type="play"/>
                     <ProgressBar animated now={position} className="m-5"/>
 
-                    <Row  className="bg-dark text-light p-4 m-5">
+                    <Row  className="background-mid border border-white text-white p-4 m-5">
                       <Col>
                         <div className="mb-1">
                           <span>Question {currentQuestion + 1}</span>/
@@ -165,8 +165,8 @@ const Quiz = (props) => {
                             (answerOption, index) => (
                               <Button
                                 key={answerOption.key}
+                                className="background-bright"
                                 id={"answerOption" + index}
-                                variant="secondary"
                                 onClick={() =>
                                   handleAnswerButtonClick(
                                     answerOption.isCorrect,

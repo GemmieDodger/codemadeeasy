@@ -4,8 +4,9 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
-import ErrorMessage from "./ErrorMessage";
 import { Link } from "react-router-dom";
+
+import ErrorMessage from "./ErrorMessage";
 
 const LearnContent = (props) => {
   const [state, setState] = useState({
@@ -43,40 +44,40 @@ const LearnContent = (props) => {
       <Row className="g-4 text-center justify-content-center">
         {props.user && (
           <Link
-            className="text-decoration-none text-info"
+            className="text-decoration-none mt-4"
             to={{ pathname: "/admin" }}
           >
             <Card
               style={{ maxHeight: 100 }}
-              className="bg-secondary d-flex  m-0 p-0 text-light xs={1} md={2}"
+              className="d-flex  m-2 p-0  xs={1} md={2}"
             >
-              <Card.Body className="align-items-center d-flex justify-content-center">
+              <Card.Body className="align-items-center text-white background-bright d-flex justify-content-center ">
                 <h3>Create or edit quiz?</h3>
               </Card.Body>
             </Card>
           </Link>
         )}
         {state.quizzes.length > 0 ?
-      
+        <>
           <Row>
-        <h1 className="mb-3">Choose your quiz?</h1>
+        <h1 className="mb-3 mt-5 text-brightest">Choose your quiz?</h1>
       </Row>
-   
+      {
         state.quizzes.map((quiz) => (
-          <Col key={quiz.id} xs={12} md={4}>
+          <Col  key={quiz.id} xs={12} md={4}>
             <div key={quiz.key} data-label="quiz">
               <Link
                 key={quiz.id}
-                className="text-decoration-none text-"
-                to={{ pathname: `/quiz/${quiz.key}/${quiz.quizName}` }}
+                className="text-decoration-none"
+                to={{ pathname: `/learn/quiz/${quiz.key}/${quiz.quizName}` }}
               >
                 <Card
                   style={{ height: 250 }}
-                  className="bg-dark d-flex  m-0 p-0 text-light xs={1} md={2}"
+                  className=" d-flex  m-0 p-0 xs={1} md={2}"
                 >
                   <Card.Body
                     data-testid="quizCard"
-                    className="align-items-center d-flex justify-content-center"
+                    className="align-items-center background-mid d-flex text-white justify-content-center"
                   >
                     <h3>{quiz.quizName} Quiz</h3>
                   </Card.Body>
@@ -85,9 +86,8 @@ const LearnContent = (props) => {
             </div>
           </Col>
         ))}
-      :
-
-          <ErrorMessage type="quizzes" />
+        </> :
+        <ErrorMessage type="quizzes" />
         }
       </Row>
     </Container>

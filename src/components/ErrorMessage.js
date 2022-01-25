@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import { useAuth } from "../authProvider";
 
 const ErrorMessage = (props) => {
@@ -24,15 +25,13 @@ const ErrorMessage = (props) => {
 
   return (
     <>
-      <Col className="bg-dark text-light p-4 m-5 text-center">
+      <Col className="text-brightest p-4 m-5 text-center">
         <Row className="p-5">
           <h3>{statement}</h3>
           <h6>{props.e}</h6>
         </Row>
         <Row>
-          <Link to="/">
-            <h4>Return to home</h4>
-          </Link>
+        <Link className="text-decoration-none" to="/"><Button className=" m-4 background-bright text-center text-white">Return to home</Button></Link>
         </Row>
         {props.type === "questions" &&  user ?
         <>        

@@ -14,7 +14,7 @@ const LandingPage = (props) => {
   return (
     <Container className="h-100 container">
       <Row className="">
-        <Box className="background-mid col">
+        <Box className="col">
           {props.user && (
             <h1 className="text-brightest text-center">Welcome home!</h1>
           )}

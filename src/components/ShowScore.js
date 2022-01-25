@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 const ShowScore = (props) => {
   return (
     <>
-      <div className="text-center bg-dark text-light p-4 m-5">
+      <div className="text-center text-brightest p-4 m-5">
         <Row>
           <p className="text-center">
             You scored {props.score} out of {props.length}
@@ -16,13 +16,13 @@ const ShowScore = (props) => {
         </Row>
         <Row>
           <Link to="/">
-            <Button>Go back to Home</Button>
+            <Button className="text-white background-bright">Go back to Home</Button>
           </Link>
         </Row>
       </div>
       {props.incorrectQuestions.length > 0 && (
       <>
-      <Row className="bg-dark text-light p-4 m-5">
+      <Row className="bg-dark text-bright p-4 m-5">
       
         <h3>Incorrect answers </h3>
           {props.incorrectQuestions.map((question, index) => (
