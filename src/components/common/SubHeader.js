@@ -25,7 +25,7 @@ const SubHeader = (props) => {
       statement = `You are editing the ${props.quizName} quiz`;
   }
 
-  return <h4 className="text-center text-brightest m-5">{statement}</h4>;
+  return <h4 className="text-center text-brightest mt-5">{statement}</h4>;
 };
 
 export default SubHeader;

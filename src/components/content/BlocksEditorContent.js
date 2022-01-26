@@ -167,6 +167,10 @@ const BlocksEditor = (props) => {
   };
 
   useEffect(() => {
+    // Handle html on initial load.
+    if(html === '') {
+      handleChange(elements, 'html')
+    }
     const timeout = setTimeout(() => {
       setsrcDoc(`
       <html>
@@ -178,15 +182,13 @@ const BlocksEditor = (props) => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [html, css, js]);
+  }, [html, css, js, elements]);
 
   return (
     <>
           <Container className="mt-5 text-white">
-          <Row className="mt-5">
+          <Row className="g-4 mt-5 text-center justify-content-center"></Row>
           <SubHeader type="blockseditor" />
-          </Row>
-        
             <Row>
             <DragDropContext onDragEnd={onDragEnd}>
               <Col item xs={12} sm={12} md={4}>
