@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../../Firebase";
 import ErrorMessage from "../common/ErrorMessage";
+import SubHeader from "../common/SubHeader";
 
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
@@ -30,7 +31,7 @@ const LearnContent = (props) => {
   // Check quizzes exists + set state.
   useEffect(() => {
     const ref = firebase.firestore().collection("quizzes");
-    
+
     ref.get().then((doc) => {
       if (!doc.exists) {
         console.log("No such document!");
@@ -58,38 +59,38 @@ const LearnContent = (props) => {
             </Card>
           </Link>
         )}
-        {state.quizzes.length > 0 ?
-        <>
-          <Row>
-        <h1 className="mb-3 mt-5 text-brightest">Choose your quiz?</h1>
-      </Row>
-      {
-        state.quizzes.map((quiz) => (
-          <Col  key={quiz.id} xs={12} md={4}>
-            <div key={quiz.key} data-label="quiz">
-              <Link
-                key={quiz.id}
-                className="text-decoration-none"
-                to={{ pathname: `/learn/quiz/${quiz.key}/${quiz.quizName}` }}
-              >
-                <Card
-                  style={{ height: 250 }}
-                  className=" d-flex  m-0 p-0 xs={1} md={2}"
-                >
-                  <Card.Body
-                    data-testid="quizCard"
-                    className="align-items-center background-mid d-flex text-white justify-content-center"
+        {state.quizzes.length > 0 ? (
+          <>
+            <SubHeader type="choosequiz" />
+            {state.quizzes.map((quiz) => (
+              <Col key={quiz.id} xs={12} md={4}>
+                <div key={quiz.key} data-label="quiz">
+                  <Link
+                    key={quiz.id}
+                    className="text-decoration-none"
+                    to={{
+                      pathname: `/learn/quiz/${quiz.key}/${quiz.quizName}`,
+                    }}
                   >
-                    <h3>{quiz.quizName} Quiz</h3>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </div>
-          </Col>
-        ))}
-        </> :
-        <ErrorMessage type="quizzes" />
-        }
+                    <Card
+                      style={{ height: 250 }}
+                      className=" d-flex  m-0 p-0 xs={1} md={2}"
+                    >
+                      <Card.Body
+                        data-testid="quizCard"
+                        className="align-items-center background-mid d-flex text-white justify-content-center"
+                      >
+                        <h3>{quiz.quizName} Quiz</h3>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                </div>
+              </Col>
+            ))}
+          </>
+        ) : (
+          <ErrorMessage type="quizzes" />
+        )}
       </Row>
     </Container>
   );

@@ -4,7 +4,7 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/mode/css/css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/xml/xml";
-import "codemirror/theme/material.css";
+import "codemirror/theme/midnight.css";
 
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
@@ -16,7 +16,7 @@ const Editor = ({ language, title, value, onChange }) => {
 
   return (
       <>
-        {title}
+        <h6>{title}</h6>
         <ControlledEditor
           onBeforeChange={handleChange}
           className="codemirror-wrapper border border-white background-mid"
@@ -25,7 +25,7 @@ const Editor = ({ language, title, value, onChange }) => {
             lineWrapping: true,
             lint: true,
             mode: language,
-            theme: "material",
+            theme: "midnight",
             lineNumbers: true
           }}
         />

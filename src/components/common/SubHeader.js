@@ -9,12 +9,17 @@ const SubHeader = (props) => {
     case "codeeditor":
       statement = "Code Editor";
       break;
+    case "blockseditor":
+      statement = "Blocks Code Editor";
+      break;
     case "codeplay":
       statement = "Choose your level for code play?";
       break;
-      case "admin":
-        statement = "Admin";
-        break;
+    case "choosequiz":
+      statement = "Choose your quiz?";
+    case "admin":
+      statement = "Admin";
+      break;
     default:
       statement = `You are editing the ${props.quizName} quiz`;
   }

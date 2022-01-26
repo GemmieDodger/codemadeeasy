@@ -15,7 +15,27 @@ const PlayContent = (props) => {
       <Row className="g-4 mt-5 text-center justify-content-center">
         <SubHeader type="codeplay" />
         <Col xs={12} md={4}>
-          <div>
+            <Link
+              className="text-decoration-none"
+              to={{ pathname: `/play/blockseditor` }}
+            >
+              <Card
+                style={{ height: 250 }}
+                className=" d-flex background-mid  m-0 p-0 xs={1} md={2} background-mid "
+              >
+                <Card.Body
+                  className="align-items-center background-mid d-flex text-white justify-content-center"
+                >
+                  <h3>Blocks Code Editor</h3>
+                 
+                </Card.Body>
+                <Card.Footer className="background-mid ">
+                <h5 className="text-bright">Play with code blocks!</h5>
+                </Card.Footer>
+              </Card>
+            </Link>
+          </Col>
+          <Col xs={12} md={4}>
             <Link
               className="text-decoration-none"
               to={{ pathname: `/play/codeeditor` }}
@@ -35,7 +55,6 @@ const PlayContent = (props) => {
                 </Card.Footer>
               </Card>
             </Link>
-          </div>
         </Col>
       </Row>
     </Container>
