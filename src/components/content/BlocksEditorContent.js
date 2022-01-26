@@ -106,8 +106,31 @@ const data = {
       prefix: "js",
       content: `const string = "I'm a string";`,
     },
-
   ],
+  suggestionsCssData: [
+    {
+      id: "23",
+      prefix: "css",
+      content: "#answer {margin: auto; font-size: 40px; border: 3px solid white; padding: 10px;}",
+    },
+    {
+      id: "24",
+      prefix: "css",
+      content: "ul {border-style: double; border-color: white; margin: 20px;}",
+    },
+    {
+      id: "25",
+      prefix: "css",
+      content: "body {background-color: black; color: white; text-align: center;}",
+    },
+  ],
+  cssData: [
+    {
+      id: "26",
+      prefix: "css",
+      content: "h1 {color: blue;}",
+    }
+  ]
 };
 
 const BlocksEditor = (props) => {
@@ -126,10 +149,18 @@ const BlocksEditor = (props) => {
     });
     setHtml(code);
   } else if (droppableId.includes('Javascript')|| droppableId.includes('javascript')) {
-    lists.javascriptData.forEach((listItem) => {
+    lists.cssData.forEach((listItem) => {
       code = code.concat(" ", listItem.content);
     });
     setJs(code);
+  } else if (droppableId.includes('Css')|| droppableId.includes('css')) {
+    console.log(css)
+    lists.cssData.forEach((listItem) => {
+      code = code.concat(" ", listItem.content);
+    });
+    console.log(code)
+    setCss(code);
+    console.log(css)
   }
   };
 
@@ -170,7 +201,12 @@ const BlocksEditor = (props) => {
     // Handle html on initial load.
     if(html === '') {
       handleChange(elements, 'html')
+    }  else if (css === '') {
+      handleChange(elements, 'css')
+    } else if (js === '') {
+      handleChange(elements, 'javascript')
     }
+
     const timeout = setTimeout(() => {
       setsrcDoc(`
       <html>
@@ -178,6 +214,7 @@ const BlocksEditor = (props) => {
       <style>${css}</style>
       <script>${js}</script>
       </html>`);
+      console.log(srcDoc)
     }, 250);
     return () => {
       clearTimeout(timeout);
@@ -209,14 +246,24 @@ const BlocksEditor = (props) => {
               </Col>
             </DragDropContext>
 
+            <DragDropContext onDragEnd={onDragEnd}>
               <Col item xs={12} sm={12} md={4}>
-                <Editor
-                  title="CSS"
-                  language="css"
-                  value={css}
+                <BlocksElement
+                  title="CSS SUGGESTIONS"
                   onChange={setCss}
+                  elements={elements.suggestionsCssData}
+                  key="suggestionsCssData"
+                  prefix="suggestionsCssData"
+                />
+                <BlocksElement
+                  title="CSS"
+                  onChange={setCss}
+                  elements={elements.cssData}
+                  key="cssData"
+                  prefix="cssData"
                 />
               </Col>
+            </DragDropContext>
 
               <DragDropContext onDragEnd={onDragEnd}>
               <Col item xs={12} sm={12} md={4}>
@@ -224,7 +271,7 @@ const BlocksEditor = (props) => {
                   title="JAVASCRIPT SUGGESTIONS"
                   onChange={setJs}
                   elements={elements.suggestionsJavascriptData}
-                  key="suggestionsJavaScriptData"
+                  key="suggestionsJavascriptData"
                   prefix="suggestionsJavascriptData"
                 />
                 <BlocksElement
