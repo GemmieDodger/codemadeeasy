@@ -17,6 +17,7 @@ const SubHeader = (props) => {
       break;
     case "choosequiz":
       statement = "Choose your quiz?";
+      break;
     case "admin":
       statement = "Admin";
       break;

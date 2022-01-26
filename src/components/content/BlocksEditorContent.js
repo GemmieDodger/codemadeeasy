@@ -10,7 +10,7 @@ import Col from "react-bootstrap/Col";
 import { DragDropContext } from "react-beautiful-dnd";
 
 const data = {
-  suggestionsData: [
+  suggestionsHtmlData: [
     {
       id: "2",
       prefix: "htmlData",
@@ -62,24 +62,75 @@ const data = {
       prefix: "html",
       content: "<p>Can you remove me?</p>",
     },
+    {
+      id: "10",
+      prefix: "html",
+      content: `<p id="answer">If you add some functions, I might transform!</p>`,
+    },
+  ],
+  suggestionsJavascriptData: [
+    {
+      id: "11",
+      prefix: "js",
+      content: "const people = [{name: 'john'}, {name: 'fred'},{name: 'amber'}];",
+    },
+    {
+      id: "15",
+      prefix: "js",
+      content: "const number = 10;",
+    },
+    {
+      id: "17",
+      prefix: "js",
+      content: `const answer = document.getElementById("answer");`,
+    },
+    {
+      id: "13",
+      prefix: "js",
+      content: "for (person of people) {number = number + 1;}",
+    },
+    {
+      id: "18",
+      prefix: "js",
+      content: `if (typeof(string) !== typeof(number)){ answer.append(" I told you so! This happened because the variables did not match") };`,
+    },
+    {
+      id: "14",
+      prefix: "js",
+      content: `element.innerHTML = number;`,
+    },
+  ],
+  javascriptData: [
+    {
+      id: "16",
+      prefix: "js",
+      content: `const string = "I'm a string";`,
+    },
+
   ],
 };
 
 const BlocksEditor = (props) => {
-  const lists = ["suggestionsData", "htmlData"];
+  const lists = ["suggestionsHtmlData", "htmlData"];
   const [elements, setElements] = React.useState(data);
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
   const [srcDoc, setsrcDoc] = useState("");
 
-  const handleChange = (elements) => {
+  const handleChange = (lists, droppableId) => {
     var code = "";
-    console.log(elements.htmlData);
-    elements.htmlData.forEach((element) => {
-      code = code.concat(" ", element.content);
+    if (droppableId.includes('Html') || droppableId.includes('html')) {
+    lists.htmlData.forEach((listItem) => {
+      code = code.concat(" ", listItem.content);
     });
     setHtml(code);
+  } else if (droppableId.includes('Javascript')|| droppableId.includes('javascript')) {
+    lists.javascriptData.forEach((listItem) => {
+      code = code.concat(" ", listItem.content);
+    });
+    setJs(code);
+  }
   };
 
   const removeFromList = (list, index) => {
@@ -112,7 +163,7 @@ const BlocksEditor = (props) => {
       removedElement
     );
     setElements(listCopy);
-    handleChange(listCopy);
+    handleChange(listCopy, result.source.droppableId);
   };
 
   useEffect(() => {
@@ -135,16 +186,16 @@ const BlocksEditor = (props) => {
           <Row className="mt-5">
           <SubHeader type="blockseditor" />
           </Row>
-            
+        
             <Row>
             <DragDropContext onDragEnd={onDragEnd}>
               <Col item xs={12} sm={12} md={4}>
                 <BlocksElement
                   title="HTML SUGGESTIONS"
                   onChange={setHtml}
-                  elements={elements.suggestionsData}
-                  key="suggestionsData"
-                  prefix="suggestionsData"
+                  elements={elements.suggestionsHtmlData}
+                  key="suggestionsHtmlData"
+                  prefix="suggestionsHtmlData"
                 />
                 <BlocksElement
                   title="HTML"
@@ -165,14 +216,24 @@ const BlocksEditor = (props) => {
                 />
               </Col>
 
+              <DragDropContext onDragEnd={onDragEnd}>
               <Col item xs={12} sm={12} md={4}>
-                <Editor
-                  title="JS"
-                  language="javascript"
-                  value={js}
+                <BlocksElement
+                  title="JAVASCRIPT SUGGESTIONS"
                   onChange={setJs}
+                  elements={elements.suggestionsJavascriptData}
+                  key="suggestionsJavaScriptData"
+                  prefix="suggestionsJavascriptData"
+                />
+                <BlocksElement
+                  title="JAVASCRIPT"
+                  onChange={setJs}
+                  elements={elements.javascriptData}
+                  key="javascriptData"
+                  prefix="javascriptData"
                 />
               </Col>
+            </DragDropContext>
               </Row>
               <Row>
               <Col className="mt-4">
