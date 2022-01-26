@@ -131,34 +131,31 @@ const BlocksEditor = (props) => {
 
   return (
     <>
-      <Container>
-        <Row className="mt-5">
-          <Container>
-            <SubHeader type="blockseditor" />
-            <DragDropContext onDragEnd={onDragEnd}>
+          <Container className="mt-5 text-white">
+          <Row className="mt-5">
+          <SubHeader type="blockseditor" />
+          </Row>
             
-            <Col item xs={12} sm={12} md={4} >
-                  <BlocksElement
-                    title="HTML SUGGESTIONS"
-                    onChange={setHtml}
-                    elements={elements.suggestionsData}
-                    key="suggestionsData"
-                    prefix="suggestionsData"
-                  />
-                </Col>
-      
-                <Col item xs={12} sm={12} md={4} >
-                  <BlocksElement
-                    title="HTML"
-                    onChange={setHtml}
-                    elements={elements.htmlData}
-                    key="htmlData"
-                    prefix="htmlData"
-                  />
-                </Col>
-        
+            <Row>
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Col item xs={12} sm={12} md={4}>
+                <BlocksElement
+                  title="HTML SUGGESTIONS"
+                  onChange={setHtml}
+                  elements={elements.suggestionsData}
+                  key="suggestionsData"
+                  prefix="suggestionsData"
+                />
+                <BlocksElement
+                  title="HTML"
+                  onChange={setHtml}
+                  elements={elements.htmlData}
+                  key="htmlData"
+                  prefix="htmlData"
+                />
+              </Col>
             </DragDropContext>
-            <Row className="text-white">
+
               <Col item xs={12} sm={12} md={4}>
                 <Editor
                   title="CSS"
@@ -167,6 +164,7 @@ const BlocksEditor = (props) => {
                   onChange={setCss}
                 />
               </Col>
+
               <Col item xs={12} sm={12} md={4}>
                 <Editor
                   title="JS"
@@ -175,10 +173,8 @@ const BlocksEditor = (props) => {
                   onChange={setJs}
                 />
               </Col>
-            </Row>
-          </Container>
-          <Container>
-            <Row item xs={12}>
+              </Row>
+              <Row>
               <Col className="mt-4">
                 <iframe
                   srcDoc={srcDoc}
@@ -192,8 +188,7 @@ const BlocksEditor = (props) => {
               </Col>
             </Row>
           </Container>
-        </Row>
-      </Container>
+
     </>
   );
 };
