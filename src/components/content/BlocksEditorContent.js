@@ -154,13 +154,10 @@ const BlocksEditor = (props) => {
     });
     setJs(code);
   } else if (droppableId.includes('Css')|| droppableId.includes('css')) {
-    console.log(css)
     lists.cssData.forEach((listItem) => {
       code = code.concat(" ", listItem.content);
     });
-    console.log(code)
     setCss(code);
-    console.log(css)
   }
   };
 
@@ -214,7 +211,6 @@ const BlocksEditor = (props) => {
       <style>${css}</style>
       <script>${js}</script>
       </html>`);
-      console.log(srcDoc)
     }, 250);
     return () => {
       clearTimeout(timeout);
@@ -237,7 +233,7 @@ const BlocksEditor = (props) => {
                   prefix="suggestionsHtmlData"
                 />
                 <BlocksElement
-                  title="HTML"
+                  title="YOUR HTML FILE"
                   onChange={setHtml}
                   elements={elements.htmlData}
                   key="htmlData"
@@ -256,7 +252,7 @@ const BlocksEditor = (props) => {
                   prefix="suggestionsCssData"
                 />
                 <BlocksElement
-                  title="CSS"
+                  title="YOUR CSS FILE"
                   onChange={setCss}
                   elements={elements.cssData}
                   key="cssData"
@@ -275,7 +271,7 @@ const BlocksEditor = (props) => {
                   prefix="suggestionsJavascriptData"
                 />
                 <BlocksElement
-                  title="JAVASCRIPT"
+                  title="YOUR JAVASCRIPT FILE"
                   onChange={setJs}
                   elements={elements.javascriptData}
                   key="javascriptData"
