@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../Firebase";
+import firebase from "../../Firebase";
+import ErrorMessage from "../common/ErrorMessage";
+
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
 
-import ErrorMessage from "./ErrorMessage";
+import { Link } from "react-router-dom";
 
 const LearnContent = (props) => {
   const [state, setState] = useState({
@@ -41,7 +42,7 @@ const LearnContent = (props) => {
 
   return (
     <Container className="text-center" data-testid="learncontent">
-      <Row className="g-4 text-center justify-content-center">
+      <Row className="g-4 text-center mt-5 justify-content-center">
         {props.user && (
           <Link
             className="text-decoration-none mt-4"
@@ -49,7 +50,7 @@ const LearnContent = (props) => {
           >
             <Card
               style={{ maxHeight: 100 }}
-              className="d-flex  m-2 p-0  xs={1} md={2}"
+              className="d-flex mt-5  m-2 p-0  xs={1} md={2}"
             >
               <Card.Body className="align-items-center text-white background-bright d-flex justify-content-center ">
                 <h3>Create or edit quiz?</h3>

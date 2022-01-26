@@ -1,14 +1,16 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { useAuth } from "../authProvider";
+
+import { useAuth } from "../../authProvider";
+import { Link } from "react-router-dom";
 
 const ErrorMessage = (props) => {
   const { user } = useAuth();
   let statement = "";
+  
   switch (props.type) {
     case "questions":
       statement = "There appear to be no questions set for this quiz.";
@@ -39,8 +41,8 @@ const ErrorMessage = (props) => {
           <h6>or</h6>
         </Row>
         <Row className="mb-5">
-          <Link to={`/admin`}>
-            <h4>Edit quizzes</h4>
+          <Link to={`/admin`} className="background-bright text-white">
+            <Button>Edit quizzes</Button>
           </Link>
         </Row>
         </>

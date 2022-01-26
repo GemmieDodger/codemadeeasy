@@ -1,14 +1,15 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import Header from "./Header";
+import firebase from "../../Firebase";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Header from "../components/Header";
-import { uiConfig } from "../authProvider";
-import firebase from "../Firebase";
+
+import { uiConfig } from "../../authProvider";
 import { StyledFirebaseAuth } from "react-firebaseui";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
   return (

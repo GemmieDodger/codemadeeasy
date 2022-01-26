@@ -1,20 +1,22 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import firebase from "../../Firebase";
+import Header from "./Header";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Header from "../components/Header";
-import { uiConfig } from "../authProvider";
-import firebase from "../Firebase";
+
+import { uiConfig } from "../../authProvider";
 import { StyledFirebaseAuth } from "react-firebaseui";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 
 const Logout = (props) => {
 
   return (
-    <div>
+    <>
     <Header />   
       <Container fluid className="text-white p-5 center" data-testid="logout">
         <Row>
@@ -27,7 +29,7 @@ const Logout = (props) => {
             </Col>
         </Row>
       </Container>
-    </div>
+    </>
   )
 }
 

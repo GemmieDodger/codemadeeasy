@@ -10,8 +10,8 @@ import EditQuiz from "./views/EditQuiz";
 import Learn from "./views/Learn";
 import Play from "./views/Play";
 import CodeEditor from "./views/CodeEditor";
-import Login from "./components/Login";
-import Logout from "./components/Logout";
+import Login from "./components/common/Login";
+import Logout from "./components/common/Logout";
 
 import { AuthProvider } from "./authProvider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

@@ -5,14 +5,15 @@ import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
-import logo from "../resources/logo/codemadeeasy_logo.png";
+import logo from "../../resources/logo/codemadeeasy_logo.png";
 
 
 const Header = (props) => {
   return (
     <Navbar
+      fixed="top"
       expand="lg"
-      className="pt-2 pb-2 background-night"
+      className="pt-2 pb-2 background-night navbar"
       data-testid="header"
       variant="dark"
     >
@@ -26,8 +27,8 @@ const Header = (props) => {
           />
         </a>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end text-white">
-          <Nav className="me-auto">
+        <Navbar.Collapse className="text-white text-center justify-content-center">
+          <Nav className="m-auto">
             <Nav.Link href="/" className="bg-transparent text-white">
               Home
             </Nav.Link>

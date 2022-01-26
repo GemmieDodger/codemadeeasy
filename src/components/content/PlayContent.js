@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
-import firebase from "../Firebase";
+import React from "react";
+
+import SubHeader from "../common/SubHeader";
+
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
 
-import ErrorMessage from "./ErrorMessage";
+import { Link } from "react-router-dom";
 
 const PlayContent = (props) => {
   return (
     <Container className="text-center" data-testid="PlayContent">
-      <Row className="g-4 text-center justify-content-center">
-        <Row>
-          <h1 className="mb-3 mt-5 text-brightest">
-            Choose your level for code play?
-          </h1>
-        </Row>
+      <Row className="g-4 mt-5 text-center justify-content-center">
+        <SubHeader type="codeplay" />
         <Col xs={12} md={4}>
           <div>
             <Link

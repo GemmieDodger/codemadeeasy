@@ -1,27 +1,20 @@
 import React from "react";
-import Header from "../components/Header";
-import PlayContent from "../components/PlayContent";
-import Loading from "../components/Loading";
 
-import Card from "react-bootstrap/Card";
+import Header from "../components/common/Header";
+import PlayContent from "../components/content/PlayContent";
+import Loading from "../components/common/Loading";
+
 import { useAuth } from "../authProvider";
-import { Link } from "react-router-dom";
 
-const Learn = () => {
+const Play = () => {
   const { user, loading, logout } = useAuth();
 
   return (
-    <div>
+    <>
       <Header user={user} logout={logout} />
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          <PlayContent user={user} />
-        </>
-      )}
-    </div>
+      {!loading ? <PlayContent user={user} /> : <Loading />}
+    </>
   );
 };
 
-export default Learn;
+export default Play;

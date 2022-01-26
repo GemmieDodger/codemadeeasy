@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/css/css";
@@ -15,7 +15,7 @@ const Editor = ({ language, title, value, onChange }) => {
   }
 
   return (
-      <div>
+      <>
         {title}
         <ControlledEditor
           onBeforeChange={handleChange}
@@ -29,7 +29,7 @@ const Editor = ({ language, title, value, onChange }) => {
             lineNumbers: true
           }}
         />
-    </div>
+    </>
   );
 };
 

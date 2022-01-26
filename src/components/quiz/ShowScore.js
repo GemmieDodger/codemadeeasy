@@ -1,16 +1,17 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
+import { Link } from "react-router-dom";
 
 const ShowScore = (props) => {
   return (
     <>
       <div className="text-center text-brightest p-4 m-5">
         <Row>
-          <p className="text-center">
+          <p className=" mt-5">
             You scored {props.score} out of {props.length}
           </p>
         </Row>
@@ -28,7 +29,7 @@ const ShowScore = (props) => {
           {props.incorrectQuestions.map((question, index) => (
             <>
               <Row >
-                <Row>
+                <Row className="p-3 text-white">
                   <Col>
                     <div className="mb-1">
                       <span>Question {question.currentQuestion + 1}</span>
@@ -52,7 +53,6 @@ const ShowScore = (props) => {
               </Row>
               </>
           ))}
-        }
         </Row>
         </> )}
     </>

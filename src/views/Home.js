@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
-import Loading from "../components/Loading";
-import LandingPage from "../components/LandingPage";
+
+import Header from "../components/common/Header";
+import Loading from "../components/common/Loading";
+import HomeContent from "../components/content/HomeContent";
 
 import { useAuth } from "../authProvider";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   const { user, loading, logout } = useAuth();
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Header user={user} logout={logout} />
-      <LandingPage user={user} />
+      {!loading ? <HomeContent user={user} /> : <Loading />}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import firebase from "../Firebase";
+import firebase from "../../Firebase";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -74,7 +74,7 @@ const AddQuestion = (props) => {
   const { answerOptions, code, questionText } = newQuestion;
 
   return (
-    <Form className="border border-white background-mid text-white p-4 m-5" onSubmit={onSubmit}>
+    <Form className="border border-white background-mid text-white p-4 mt-5" onSubmit={onSubmit}>
       <Row>
         <Col>
           <div className="mb-1">
