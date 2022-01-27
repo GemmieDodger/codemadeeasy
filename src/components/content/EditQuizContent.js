@@ -158,9 +158,10 @@ const EditQuestions = (props) => {
               />
             </>
           )}
-          <div className="background-mid text-white border border-white p-4 mt-5">
+          
             {questions.length > 0 && (
               <>
+              <div className="background-mid text-white border border-white p-4 mt-5">
                 <h2 className=" text-brightest">UPDATE QUESTIONS</h2>
                 <Form onSubmit={onSubmitQuestions}>
                   {questions.map((question, index) => (
@@ -351,9 +352,9 @@ const EditQuestions = (props) => {
                     </Button>
                   </Row>
                 </Form>
+                </div>
               </>
             )}
-          </div>
           <AddQuestion id={id} />
       </Container>
     </>
