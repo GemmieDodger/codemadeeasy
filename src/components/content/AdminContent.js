@@ -42,7 +42,8 @@ const AdminContent = (props) => {
     });
     const unsubscribe = ref.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
-  }, []);
+  }, [user]);
+
   try {
     return (
       <Container className="text-center" data-testid="AdminContent">
@@ -56,10 +57,7 @@ const AdminContent = (props) => {
                   <Col xs={12} md={4}>
                     <Link
                       className="text-decoration-none"
-                      to={{
-                        pathname: `/admin/create`,
-                        passedProps: { user: user },
-                      }}
+                      to={{pathname: `/admin/create`}}
                     >
                       <Card style={{ height: 250 }} className=" d-flex ">
                         <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
@@ -98,10 +96,7 @@ const AdminContent = (props) => {
                 <Col xs={12} md={4}>
                   <Link
                     className="text-decoration-none"
-                    to={{
-                      pathname: `/admin/create`,
-                      passedProps: { user: user },
-                    }}
+                    to={{pathname: `/admin/create`}}
                   >
                     <Card style={{ height: 250 }} className=" d-flex ">
                       <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
@@ -111,7 +106,6 @@ const AdminContent = (props) => {
                   </Link>
                 </Col>
               </Row>
-              <ErrorMessage type="quizzes" />
             </>
           )}
         </Row>
