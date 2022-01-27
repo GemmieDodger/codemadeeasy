@@ -1,9 +1,8 @@
 #app {
-  font-family: "Courier New", "Comic Sans", cursive;
-  font: "Courier New";
   margin: 0;
   height: 100vh;
   color: #ffffff;
+  font-family: 'Courier New', monospace;
 }
 
 

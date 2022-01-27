@@ -1,12 +1,9 @@
-code {
-  font-family: "Courier New";
-}
 
 html {
-  font-family: "Courier New";
+  font-family: 'Courier New', monospace;
 }
 body {
-  font-family: "Courier New";
+  font-family: 'Courier New', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,4 +17,5 @@ body,
   height: 100%;
   background-color: #00171f;
   margin: 0;
+  font-family: 'Courier New', monospace;
 }
