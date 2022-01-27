@@ -72,7 +72,8 @@ const data = {
     {
       id: "11",
       prefix: "js",
-      content: "const people = [{name: 'john'}, {name: 'fred'},{name: 'amber'}];",
+      content:
+        "const people = [{name: 'john'}, {name: 'fred'},{name: 'amber'}];",
     },
     {
       id: "15",
@@ -111,7 +112,8 @@ const data = {
     {
       id: "23",
       prefix: "css",
-      content: "#answer {margin: auto; font-size: 40px; border: 3px solid white; padding: 10px;}",
+      content:
+        "#answer {margin: auto; font-size: 40px; border: 3px solid white; padding: 10px;}",
     },
     {
       id: "24",
@@ -121,7 +123,8 @@ const data = {
     {
       id: "25",
       prefix: "css",
-      content: "body {background-color: black; color: white; text-align: center;}",
+      content:
+        "body {background-color: black; color: white; text-align: center;}",
     },
   ],
   cssData: [
@@ -129,8 +132,8 @@ const data = {
       id: "26",
       prefix: "css",
       content: "h1 {color: blue;}",
-    }
-  ]
+    },
+  ],
 };
 
 const BlocksEditor = (props) => {
@@ -143,22 +146,25 @@ const BlocksEditor = (props) => {
 
   const handleChange = (lists, droppableId) => {
     var code = "";
-    if (droppableId.includes('Html') || droppableId.includes('html')) {
-    lists.htmlData.forEach((listItem) => {
-      code = code.concat(" ", listItem.content);
-    });
-    setHtml(code);
-  } else if (droppableId.includes('Javascript')|| droppableId.includes('javascript')) {
-    lists.cssData.forEach((listItem) => {
-      code = code.concat(" ", listItem.content);
-    });
-    setJs(code);
-  } else if (droppableId.includes('Css')|| droppableId.includes('css')) {
-    lists.cssData.forEach((listItem) => {
-      code = code.concat(" ", listItem.content);
-    });
-    setCss(code);
-  }
+    if (droppableId.includes("Html") || droppableId.includes("html")) {
+      lists.htmlData.forEach((listItem) => {
+        code = code.concat(" ", listItem.content);
+      });
+      setHtml(code);
+    } else if (
+      droppableId.includes("Javascript") ||
+      droppableId.includes("javascript")
+    ) {
+      lists.cssData.forEach((listItem) => {
+        code = code.concat(" ", listItem.content);
+      });
+      setJs(code);
+    } else if (droppableId.includes("Css") || droppableId.includes("css")) {
+      lists.cssData.forEach((listItem) => {
+        code = code.concat(" ", listItem.content);
+      });
+      setCss(code);
+    }
   };
 
   const removeFromList = (list, index) => {
@@ -196,12 +202,12 @@ const BlocksEditor = (props) => {
 
   useEffect(() => {
     // Handle html on initial load.
-    if(html === '') {
-      handleChange(elements, 'html')
-    }  else if (css === '') {
-      handleChange(elements, 'css')
-    } else if (js === '') {
-      handleChange(elements, 'javascript')
+    if (html === "") {
+      handleChange(elements, "html");
+    } else if (css === "") {
+      handleChange(elements, "css");
+    } else if (js === "") {
+      handleChange(elements, "javascript");
     }
 
     const timeout = setTimeout(() => {
@@ -219,82 +225,81 @@ const BlocksEditor = (props) => {
 
   return (
     <>
-          <Container className="mt-5 text-white">
-          <Row className="g-4 mt-5 text-center justify-content-center"></Row>
-          <SubHeader type="blockseditor" />
-            <Row>
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Col item xs={12} sm={12} md={4}>
-                <BlocksElement
-                  title="HTML SUGGESTIONS"
-                  onChange={setHtml}
-                  elements={elements.suggestionsHtmlData}
-                  key="suggestionsHtmlData"
-                  prefix="suggestionsHtmlData"
-                />
-                <BlocksElement
-                  title="YOUR HTML FILE"
-                  onChange={setHtml}
-                  elements={elements.htmlData}
-                  key="htmlData"
-                  prefix="htmlData"
-                />
-              </Col>
-            </DragDropContext>
+      <Container className="mt-5 text-white">
+        <Row className="g-4 mt-5 text-center justify-content-center"></Row>
+        <SubHeader type="blockseditor" />
+        <Row>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Col item xs={12} sm={12} md={4}>
+              <BlocksElement
+                title="HTML SUGGESTIONS"
+                onChange={setHtml}
+                elements={elements.suggestionsHtmlData}
+                key="suggestionsHtmlData"
+                prefix="suggestionsHtmlData"
+              />
+              <BlocksElement
+                title="YOUR HTML FILE"
+                onChange={setHtml}
+                elements={elements.htmlData}
+                key="htmlData"
+                prefix="htmlData"
+              />
+            </Col>
+          </DragDropContext>
 
-            <DragDropContext onDragEnd={onDragEnd}>
-              <Col item xs={12} sm={12} md={4}>
-                <BlocksElement
-                  title="CSS SUGGESTIONS"
-                  onChange={setCss}
-                  elements={elements.suggestionsCssData}
-                  key="suggestionsCssData"
-                  prefix="suggestionsCssData"
-                />
-                <BlocksElement
-                  title="YOUR CSS FILE"
-                  onChange={setCss}
-                  elements={elements.cssData}
-                  key="cssData"
-                  prefix="cssData"
-                />
-              </Col>
-            </DragDropContext>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Col item xs={12} sm={12} md={4}>
+              <BlocksElement
+                title="CSS SUGGESTIONS"
+                onChange={setCss}
+                elements={elements.suggestionsCssData}
+                key="suggestionsCssData"
+                prefix="suggestionsCssData"
+              />
+              <BlocksElement
+                title="YOUR CSS FILE"
+                onChange={setCss}
+                elements={elements.cssData}
+                key="cssData"
+                prefix="cssData"
+              />
+            </Col>
+          </DragDropContext>
 
-              <DragDropContext onDragEnd={onDragEnd}>
-              <Col item xs={12} sm={12} md={4}>
-                <BlocksElement
-                  title="JAVASCRIPT SUGGESTIONS"
-                  onChange={setJs}
-                  elements={elements.suggestionsJavascriptData}
-                  key="suggestionsJavascriptData"
-                  prefix="suggestionsJavascriptData"
-                />
-                <BlocksElement
-                  title="YOUR JAVASCRIPT FILE"
-                  onChange={setJs}
-                  elements={elements.javascriptData}
-                  key="javascriptData"
-                  prefix="javascriptData"
-                />
-              </Col>
-            </DragDropContext>
-              </Row>
-              <Row>
-              <Col className="mt-4">
-                <iframe
-                  srcDoc={srcDoc}
-                  title="output"
-                  sandbox="allow-scripts"
-                  width="100%"
-                  height="300px"
-                  overflow="scroll"
-                  className="background-white"
-                />
-              </Col>
-            </Row>
-          </Container>
-
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Col item xs={12} sm={12} md={4}>
+              <BlocksElement
+                title="JAVASCRIPT SUGGESTIONS"
+                onChange={setJs}
+                elements={elements.suggestionsJavascriptData}
+                key="suggestionsJavascriptData"
+                prefix="suggestionsJavascriptData"
+              />
+              <BlocksElement
+                title="YOUR JAVASCRIPT FILE"
+                onChange={setJs}
+                elements={elements.javascriptData}
+                key="javascriptData"
+                prefix="javascriptData"
+              />
+            </Col>
+          </DragDropContext>
+        </Row>
+        <Row>
+          <Col className="mt-4">
+            <iframe
+              srcDoc={srcDoc}
+              title="output"
+              sandbox="allow-scripts"
+              width="100%"
+              height="300px"
+              overflow="scroll"
+              className="background-white"
+            />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

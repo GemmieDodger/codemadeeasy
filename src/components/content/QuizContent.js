@@ -3,9 +3,6 @@ import firebase from "../../Firebase";
 
 import CodeBox from "../quiz/CodeBox";
 import SubHeader from "../common/SubHeader";
-import ErrorMessage from "../common/ErrorMessage";
-import Loading from "../common/Loading";
-import Header from "../common/Header";
 import ShowScore from "../quiz/ShowScore";
 
 import Button from "react-bootstrap/Button";
@@ -31,9 +28,8 @@ const QuizContent = (props) => {
   const [showErrorScreen, setShowErrorScreen] = useState(false);
   const [incorrectQuestions, setIncorrectQuestions] = useState([]);
 
-  // auth
-  const { user, logout } = useAuth();
-const { quizname, id } = useParams();
+  const { quizname, id } = useParams();
+
   const onCollectionUpdate = (querySnapshot) => {
     const questions = [];
     querySnapshot.forEach((doc) => {
@@ -139,7 +135,12 @@ const { quizname, id } = useParams();
                 ) : (
                   <>
                     <SubHeader quizName={quizname} type="play" />
-                    <ProgressBar animated now={position} variant="progress" className="mt-5" />
+                    <ProgressBar
+                      animated
+                      now={position}
+                      variant="progress"
+                      className="mt-5"
+                    />
 
                     <Row className="background-mid border border-white text-white p-4 m-5">
                       <Col>
