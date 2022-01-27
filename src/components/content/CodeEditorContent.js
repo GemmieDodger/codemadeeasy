@@ -14,19 +14,19 @@ const CodeEditorContent = () => {
   const [js, setJs] = useState("");
   const [srcDoc, setsrcDoc] = useState("");
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setsrcDoc(`
-    <html>
-    <body>${html}</body>
-    <style>${css}</style>
-    <script>${js}</script>
-    </html>`);
-    }, 250);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [html, css, js]);
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     setsrcDoc(`
+  //   <html>
+  //   <body>${html}</body>
+  //   <style>${css}</style>
+  //   <script>${js}</script>
+  //   </html>`);
+  //   }, 250);
+  //   return () => {
+  //     clearTimeout(timeout);
+  //   };
+  // }, [html, css, js]);
 
   try {
     return (
