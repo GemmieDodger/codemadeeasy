@@ -56,7 +56,7 @@ const Header = (props) => {
               <>
                 <Nav.Link href="/login">
                   <Button className="bg-transparent" id="login-button">
-                    Login
+                    Admin Login
                   </Button>
                 </Nav.Link>
               </>
