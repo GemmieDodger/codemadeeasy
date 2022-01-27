@@ -5,7 +5,7 @@ import {
     useContext,
     createContext,
 } from 'react';
-import firebase from './Firebase';
+import {firebase} from './Firebase';
 import {  onAuthStateChanged, getAuth} from 'firebase/auth';
 
 

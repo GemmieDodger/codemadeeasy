@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from "./Header";
-import firebase from "../../Firebase";
+import {firebase} from "../../Firebase";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

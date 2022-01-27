@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../Firebase";
+import {quizzesRef} from "../../Firebase";
 import ErrorMessage from "../common/ErrorMessage";
 import SubHeader from "../common/SubHeader";
 
@@ -30,7 +30,7 @@ const LearnContent = (props) => {
 
   // Check quizzes exists + set state.
   useEffect(() => {
-    const ref = firebase.firestore().collection("quizzes");
+    const ref = quizzesRef;
 
     ref.get().then((doc) => {
       if (!doc.exists) {

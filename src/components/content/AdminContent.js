@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../Firebase";
+import { quizzesRef} from "../../Firebase";
 
 import ErrorMessage from "../common/ErrorMessage";
 import SubHeader from "../common/SubHeader";
@@ -33,14 +33,14 @@ const AdminContent = (props) => {
 
   //check quizzes exists + set state
   useEffect(() => {
-    const ref = firebase.firestore().collection("quizzes");
+    
 
-    ref.get().then((doc) => {
+    quizzesRef.get().then((doc) => {
       if (!doc.exists) {
         console.log("No such document!");
       }
     });
-    const unsubscribe = ref.onSnapshot(onCollectionUpdate);
+    const unsubscribe = quizzesRef.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
   }, [user]);
 

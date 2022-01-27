@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import firebase from "../../Firebase";
+import {quizzesRef} from "../../Firebase";
 import ErrorMessage from "../common/ErrorMessage";
 
 import Button from "react-bootstrap/Button";
@@ -27,7 +27,7 @@ const CreateQuizContent = (props) => {
     e.preventDefault();
     const { quizName } = quiz;
 
-    const ref = firebase.firestore().collection("quizzes");
+    const ref = quizzesRef;
 
     ref
       .add({ quizName })

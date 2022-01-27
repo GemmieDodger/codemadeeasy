@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../Firebase";
+import {quizzesRef} from "../../Firebase";
 
 import ShowModal from "../common/ShowModal";
 import ErrorMessage from "../common/ErrorMessage";
@@ -54,13 +54,11 @@ const EditQuestions = (props) => {
   };
 
   useEffect(() => {
-    const col = firebase
-      .firestore()
-      .collection("quizzes")
+    const col = quizzesRef
       .doc(id)
       .collection("questions")
       .orderBy("timestamp");
-    const ref = firebase.firestore().collection("quizzes").doc(id);
+    const ref = quizzesRef.doc(id);
 
     ref.get().then((doc) => {
       if (doc.exists) {
@@ -94,9 +92,7 @@ const EditQuestions = (props) => {
     const updatedQuestions = questions;
 
     questions.forEach((question, index) => {
-      const updateRef = firebase
-        .firestore()
-        .collection("quizzes")
+      const updateRef = quizzesRef
         .doc(id)
         .collection("questions")
         .doc(question.key);
@@ -120,9 +116,7 @@ const EditQuestions = (props) => {
   };
 
   const deleteQuestion = (questionId) => {
-    firebase
-      .firestore()
-      .collection("quizzes")
+    quizzesRef
       .doc(id)
       .collection("questions")
       .doc(questionId)

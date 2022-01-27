@@ -1,7 +1,7 @@
 import React from 'react';
 import {   useState, useEffect } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import firebase from "./Firebase";
+import {firebase} from "./Firebase";
 import "firebase/auth";
 
 const firebaseAuthConfig = {

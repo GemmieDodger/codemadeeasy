@@ -22,5 +22,6 @@ const config = {
 firebase.initializeApp(config);
 
 firebase.firestore().settings(settings);
+const quizzesRef = firebase.firestore().collection("quizzes");
 
-export default firebase;
+export {firebase, quizzesRef};

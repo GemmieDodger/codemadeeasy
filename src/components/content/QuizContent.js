@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import firebase from "../../Firebase";
+import {quizzesRef} from "../../Firebase";
 
 import CodeBox from "../quiz/CodeBox";
 import SubHeader from "../common/SubHeader";
@@ -51,9 +51,7 @@ const QuizContent = (props) => {
   };
 
   useEffect(() => {
-    const col = firebase
-      .firestore()
-      .collection("quizzes")
+    const col = quizzesRef
       .doc(id)
       .collection("questions");
 
