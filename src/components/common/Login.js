@@ -15,7 +15,7 @@ const Login = (props) => {
   return (
     <div>
       <Header />
-      <Container fluid className="text-white p-5" data-testid="login">
+      <Container fluid className="text-white mt-5 p-5" data-testid="login">
         <Row>
           <Col>
             <StyledFirebaseAuth
