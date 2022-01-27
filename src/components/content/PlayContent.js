@@ -13,7 +13,7 @@ const PlayContent = (props) => {
   return (
     <Container className="text-center" data-testid="PlayContent">
       <Row className="g-4 mt-5 text-center justify-content-center">
-        <SubHeader type="codeplay" />
+        <SubHeader type={props.type} />
         <Col xs={12} md={4}>
             <Link
               className="text-decoration-none"

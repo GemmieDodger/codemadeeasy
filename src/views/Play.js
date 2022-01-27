@@ -12,7 +12,7 @@ const Play = () => {
   return (
     <>
       <Header user={user} logout={logout} />
-      {!loading ? <PlayContent user={user} /> : <Loading />}
+      {!loading ? <PlayContent type="landing" user={user} /> : <Loading />}
     </>
   );
 };

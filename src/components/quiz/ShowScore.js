@@ -1,4 +1,5 @@
 import React from "react";
+import PlayContent from "../content/PlayContent"
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -55,6 +56,7 @@ const ShowScore = (props) => {
           ))}
         </Row>
         </> )}
+        <PlayContent type="showScore" />
     </>
   );
 };

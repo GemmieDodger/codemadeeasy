@@ -148,7 +148,7 @@ const EditQuestions = (props) => {
     <>
       <Container>
 
-          <SubHeader quizName={quiz.quizname} />
+          <SubHeader type="edit" quizName={quiz.quizname} />
           {show && (
             <>
               <ShowModal
