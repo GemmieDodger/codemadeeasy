@@ -46,7 +46,7 @@ const AddQuestion = (props) => {
     e.preventDefault();
     const timestamp = new Date().getTime();
     const { questionText, answerOptions, code } = newQuestion;
-    console.log(col);
+
     col
       .add({
         questionText,
