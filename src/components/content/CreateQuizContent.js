@@ -46,7 +46,7 @@ const CreateQuizContent = (props) => {
           <Row >
             <SubHeader type="add"/>
             <Form className="background-mid text-white border border-white p-4" onSubmit={onSubmitQuiz}>
-              <Form.Group className="mb-3" controlId="quizName">
+              <Form.Group className=" mt-3 mb-3" controlId="quizName">
                 <Form.Control
                   id="addAQuizName"
                   as="textarea"

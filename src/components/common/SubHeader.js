@@ -28,7 +28,7 @@ const SubHeader = (props) => {
       statement = `You are editing the ${props.quizName} quiz`;
       break;
     case "add":
-      statement = `Add a quiz`;
+      statement = `Create a quiz`;
       break;
 
     default:
