@@ -58,7 +58,7 @@ const QuizContent = (props) => {
 
     const unsubscribe = col.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
-  }, [id]);
+  }, [propsCode, currentQuestion, showScore, id]);
 
   const updatePosition = () => {
     const place = currentQuestion;
