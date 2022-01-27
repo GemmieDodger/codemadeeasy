@@ -216,7 +216,6 @@ const BlocksEditor = (props) => {
       <script>${js}</script>
       </html>`);
     }, 250);
-    console.log(srcDoc)
     return () => {
       clearTimeout(timeout);
     };
