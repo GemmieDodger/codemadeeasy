@@ -12,7 +12,6 @@ import Stack from "react-bootstrap/Stack";
 import Container from "react-bootstrap/Container";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
-import useAuth from "../../firebaseAuth";
 import { useParams } from "react-router-dom";
 
 const QuizContent = (props) => {
@@ -22,10 +21,8 @@ const QuizContent = (props) => {
   const [showScore, setShowScore] = useState(false);
   const [position, setPosition] = useState(0);
   const [score, setScore] = useState(0);
-  const [quiz, setQuiz] = useState({});
   const [questions, setQuestions] = useState([]);
   const [propsCode, setPropsCode] = useState("");
-  const [showErrorScreen, setShowErrorScreen] = useState(false);
   const [incorrectQuestions, setIncorrectQuestions] = useState([]);
 
   const { quizname, id } = useParams();
@@ -49,7 +46,6 @@ const QuizContent = (props) => {
       setIsLoading(false);
     } else {
       setIsLoading(false);
-      setShowErrorScreen(true);
     }
   };
 
@@ -59,16 +55,10 @@ const QuizContent = (props) => {
       .collection("quizzes")
       .doc(id)
       .collection("questions");
-    const ref = firebase.firestore().collection("quizzes").doc(id);
 
-    ref.get().then((doc) => {
-      if (doc.exists && doc.questions) {
-        setQuiz(doc.data());
-      }
-    });
     const unsubscribe = col.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
-  }, [propsCode, currentQuestion, showScore]);
+  }, [id]);
 
   const updatePosition = () => {
     const place = currentQuestion;
@@ -83,7 +73,7 @@ const QuizContent = (props) => {
     incorrectQuestions.forEach((question) => {
       incorrectQQuestions.push(question);
     });
-    questions[currentQuestion].answerOptions.map((answerOption, index) => {
+    questions[currentQuestion].answerOptions.forEach((answerOption, index) => {
       if (answerOption.isCorrect) {
         correctAnswerText = answerOption.answerText;
       }

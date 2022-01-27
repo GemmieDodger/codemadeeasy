@@ -16,13 +16,9 @@ import Stack from "react-bootstrap/Stack";
 import { useParams } from "react-router-dom";
 
 const EditQuestions = (props) => {
-  const { id, quizname } = useParams();
-  // State for display of quiz.
-  const [isLoading, setIsLoading] = useState(true);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const { id } = useParams();
   const [quiz, setQuiz] = useState({});
   const [questions, setQuestions] = useState([]);
-  const [deleted, setDeleted] = useState(false);
   const [newQuestion, setNewQuestion] = useState({
     questionText: "",
     answerOptions: [
@@ -69,12 +65,11 @@ const EditQuestions = (props) => {
     ref.get().then((doc) => {
       if (doc.exists) {
         setQuiz(doc.data());
-        setIsLoading(false);
       }
     });
     const unsubscribe = col.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
-  }, [deleted]); // , props.match.params.id
+  }, [type]); 
 
   const onChangeQuestions = (e) => {
     const name = e.target.name;
@@ -98,7 +93,7 @@ const EditQuestions = (props) => {
 
     const updatedQuestions = questions;
 
-    questions.map((question, index) => {
+    questions.forEach((question, index) => {
       const updateRef = firebase
         .firestore()
         .collection("quizzes")

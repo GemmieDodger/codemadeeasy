@@ -4,10 +4,9 @@ import {
     useState,
     useContext,
     createContext,
-    FunctionComponent
 } from 'react';
 import firebase from './Firebase';
-import { browserLocalPersistence, initializeAuth, onAuthStateChanged, getAuth} from 'firebase/auth';
+import {  onAuthStateChanged, getAuth} from 'firebase/auth';
 
 
 const AuthContext = createContext({

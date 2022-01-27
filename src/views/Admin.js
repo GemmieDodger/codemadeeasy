@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import firebase from "../Firebase";
+import React from "react";
 
 import AdminContent from "../components/content/AdminContent";
 import Loading from "../components/common/Loading";

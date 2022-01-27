@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import BlocksElement from "../blockseditor/BlocksElement";
-import Editor from "../common/Editor";
 import SubHeader from "../common/SubHeader";
 
 import Container from "react-bootstrap/Container";
@@ -137,7 +136,6 @@ const data = {
 };
 
 const BlocksEditor = (props) => {
-  const lists = ["suggestionsHtmlData", "htmlData"];
   const [elements, setElements] = React.useState(data);
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
@@ -155,7 +153,7 @@ const BlocksEditor = (props) => {
       droppableId.includes("Javascript") ||
       droppableId.includes("javascript")
     ) {
-      lists.cssData.forEach((listItem) => {
+      lists.javascriptData.forEach((listItem) => {
         code = code.concat(" ", listItem.content);
       });
       setJs(code);
@@ -218,6 +216,7 @@ const BlocksEditor = (props) => {
       <script>${js}</script>
       </html>`);
     }, 250);
+    console.log(srcDoc)
     return () => {
       clearTimeout(timeout);
     };

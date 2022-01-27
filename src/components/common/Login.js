@@ -9,7 +9,6 @@ import Col from "react-bootstrap/Col";
 
 import { uiConfig } from "../../authProvider";
 import { StyledFirebaseAuth } from "react-firebaseui";
-import { Link } from "react-router-dom";
 
 const Login = (props) => {
   return (
@@ -19,7 +18,7 @@ const Login = (props) => {
         <Row>
           <Col>
             <StyledFirebaseAuth
-              style="p-2"
+              className="p-2"
               uiConfig={uiConfig}
               firebaseAuth={firebase.auth()}
             />

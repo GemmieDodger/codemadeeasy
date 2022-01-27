@@ -7,8 +7,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { useAuth } from "../../authProvider";
-
 const CodeEditorContent = () => {
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import firebase from "../../Firebase";
 
 import ErrorMessage from "../common/ErrorMessage";
-import Loading from "../common/Loading";
-import Header from "../common/Header";
 import SubHeader from "../common/SubHeader";
 
 import Container from "react-bootstrap/Container";
@@ -15,7 +13,7 @@ import { useAuth } from "../../authProvider";
 import { Link } from "react-router-dom";
 
 const AdminContent = (props) => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [state, setState] = useState({
     quizzes: [],
   });
