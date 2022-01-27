@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../authProvider";
+import SubHeader from "../common/SubHeader";
 
 const CreateQuizContent = (props) => {
   const { loading} = useAuth();
@@ -41,10 +42,10 @@ const CreateQuizContent = (props) => {
   if (!loading) {
     return (
       <>
-        <Container>
-          <Row className="background-mid text-white border border-white  p-4 m-5">
-            <h2 className=" text-brightest">ADD A QUIZ</h2>
-            <Form onSubmit={onSubmitQuiz}>
+        <Container  className="mt-5">
+          <Row >
+            <SubHeader type="add"/>
+            <Form className="background-mid text-white border border-white p-4" onSubmit={onSubmitQuiz}>
               <Form.Group className="mb-3" controlId="quizName">
                 <Form.Control
                   id="addAQuizName"

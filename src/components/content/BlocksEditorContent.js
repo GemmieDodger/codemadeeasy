@@ -98,7 +98,7 @@ const data = {
     {
       id: "14",
       prefix: "js",
-      content: `element.innerHTML = number;`,
+      content: `document.getElementById("number").innerHTML = number;`,
     },
   ],
   javascriptData: [

@@ -15,18 +15,22 @@ const SubHeader = (props) => {
     case "landing":
       statement = "Choose your level for code play?";
       break;
-      case "showScore":
-        statement = "Now you've learnt the skills, practice with some code play?";
-        break;
+    case "showScore":
+      statement = "Now you've learnt the skills, practice with some code play?";
+      break;
     case "choosequiz":
       statement = "Choose your quiz?";
       break;
     case "admin":
       statement = "Admin";
       break;
-      case "edit":
-        statement = `You are editing the ${props.quizName} quiz`;
-        break;
+    case "edit":
+      statement = `You are editing the ${props.quizName} quiz`;
+      break;
+    case "add":
+      statement = `Add a quiz`;
+      break;
+
     default:
       statement = `Welcome!`;
   }
