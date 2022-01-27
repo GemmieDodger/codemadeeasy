@@ -31,12 +31,12 @@
     "react-firebaseui": "^6.0.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "styled-components": "^5.3.3",
+    "source-map-explorer": "^2.5.2",
     "web-vitals": "^2.1.4"
   },
-  
   "scripts": {
     "start": "react-scripts start",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"

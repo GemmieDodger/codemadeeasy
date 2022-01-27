@@ -1,9 +1,6 @@
 import React from "react";
 
 import "codemirror/lib/codemirror.css";
-import "codemirror/mode/css/css";
-import "codemirror/mode/javascript/javascript";
-import "codemirror/mode/xml/xml";
 import "codemirror/theme/midnight.css";
 
 import { Controlled as ControlledEditor } from "react-codemirror2";
