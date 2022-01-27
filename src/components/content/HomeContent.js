@@ -11,9 +11,9 @@ const LandingPage = (props) => {
       <Row className="">
         <Box className="col">
           {props.user && (
-            <h1 className="text-brightest m-5 text-center">Welcome home!</h1>
+            <h1 className="text-brightest mt-5 text-center">Welcome home!</h1>
           )}
-          <h3 className="text-center m-5 align-middle text-brightest ">
+          <h3 className="text-center mt-5 align-middle text-brightest ">
             Your one-stop-shop to break into the world of programming.
           </h3>
         </Box>
