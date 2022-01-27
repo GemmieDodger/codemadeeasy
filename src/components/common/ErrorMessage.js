@@ -18,11 +18,14 @@ const ErrorMessage = (props) => {
     case "quiz":
       statement = "There seems to have been an error with this quiz.";
       break;
+      case "admin":
+        statement = "Looks like there's a problem with your admin page.";
+        break;
     case "quizzes":
       statement = "There appear to be no quizzes.";
       break;
     default:
-      statement = "There has been an error";
+      statement = "There has been an error with this page";
   }
 
   return (

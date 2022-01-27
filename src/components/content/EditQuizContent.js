@@ -69,7 +69,7 @@ const EditQuestions = (props) => {
     });
     const unsubscribe = col.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
-  }, [type]); 
+  }, [type]);
 
   const onChangeQuestions = (e) => {
     const name = e.target.name;
@@ -139,10 +139,10 @@ const EditQuestions = (props) => {
 
   const { answerOptions, code, questionText, timestamp } = newQuestion;
 
-  return (
-    <>
-      <Container>
-
+  try {
+    return (
+      <>
+        <Container>
           <SubHeader type="edit" quizName={quiz.quizname} />
           {show && (
             <>
@@ -153,9 +153,9 @@ const EditQuestions = (props) => {
               />
             </>
           )}
-          
-            {questions.length > 0 && (
-              <>
+
+          {questions.length > 0 && (
+            <>
               <div className="background-mid text-white border border-white p-4 mt-5">
                 <h2 className=" text-brightest">UPDATE QUESTIONS</h2>
                 <Form onSubmit={onSubmitQuestions}>
@@ -347,13 +347,16 @@ const EditQuestions = (props) => {
                     </Button>
                   </Row>
                 </Form>
-                </div>
-              </>
-            )}
+              </div>
+            </>
+          )}
           <AddQuestion id={id} />
-      </Container>
-    </>
-  );
+        </Container>
+      </>
+    );
+  } catch (error) {
+    <ErrorMessage type="edit" e={error} />;
+  }
 };
 
 export default EditQuestions;

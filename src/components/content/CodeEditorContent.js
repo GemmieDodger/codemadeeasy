@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Editor from "../common/Editor";
 import SubHeader from "../common/SubHeader";
+import ErrorMessage from "../common/ErrorMessage";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -27,53 +28,57 @@ const CodeEditorContent = () => {
     };
   }, [html, css, js]);
 
-  return (
-    <>
-        <Container>
-        <Row className="mt-5">
-        <Container >
-        <SubHeader type="codeeditor"/>
-        <Row className="text-white">
-          <Col item xs={12} sm={12} md={4}>
-            <Editor
-              title="HTML"
-              language="xml"
-              value={html}
-              onChange={setHtml}
-            />
-          </Col>
-          <Col item xs={12} sm={12} md={4}>
-            <Editor title="CSS" language="css" value={css} onChange={setCss} />
-          </Col>
-          <Col item xs={12} sm={12} md={4}>
-            <Editor
-              title="JS"
-              language="javascript"
-              value={js}
-              onChange={setJs}
-            />
-          </Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row item xs={12}>
-            <Col className="mt-4">
-              <iframe
-                srcDoc={srcDoc}
-                title="output"
-                sandbox="allow-scripts"
-                width="100%"
-                height="300px"
-                overflow="scroll"
-                className="background-white"
+  try {
+    return (
+      <>
+          <Container>
+          <Row className="mt-5">
+          <Container >
+          <SubHeader type="codeeditor"/>
+          <Row className="text-white">
+            <Col item xs={12} sm={12} md={4}>
+              <Editor
+                title="HTML"
+                language="xml"
+                value={html}
+                onChange={setHtml}
               />
             </Col>
+            <Col item xs={12} sm={12} md={4}>
+              <Editor title="CSS" language="css" value={css} onChange={setCss} />
+            </Col>
+            <Col item xs={12} sm={12} md={4}>
+              <Editor
+                title="JS"
+                language="javascript"
+                value={js}
+                onChange={setJs}
+              />
+            </Col>
+            </Row>
+          </Container>
+          <Container>
+            <Row item xs={12}>
+              <Col className="mt-4">
+                <iframe
+                  srcDoc={srcDoc}
+                  title="output"
+                  sandbox="allow-scripts"
+                  width="100%"
+                  height="300px"
+                  overflow="scroll"
+                  className="background-white"
+                />
+              </Col>
+            </Row>
+          </Container>
           </Row>
-        </Container>
-        </Row>
-        </Container>
-    </>
-  );
+          </Container>
+      </>
+    );
+  } catch (error) {
+    <ErrorMessage type="code" e={error} />
+  } 
 }
 
 export default CodeEditorContent;

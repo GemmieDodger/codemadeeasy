@@ -43,16 +43,58 @@ const AdminContent = (props) => {
     const unsubscribe = ref.onSnapshot(onCollectionUpdate);
     return () => unsubscribe();
   }, []);
+  try {
+    return (
+      <Container className="text-center" data-testid="AdminContent">
+        <Row className="g-4 mt-5 text-center justify-content-center">
+          <SubHeader type="admin" />
 
-  return (
-    <Container className="text-center" data-testid="AdminContent">
-      <Row className="g-4 mt-5 text-center justify-content-center">
-        <SubHeader type="admin" />
-
-        {state.quizzes.length > 0 ? (
-          <>
-            <Container data-testid="admin">
-              <Row className="g-4 text-center justify-content-center">
+          {state.quizzes.length > 0 ? (
+            <>
+              <Container data-testid="admin">
+                <Row className="g-4 text-center justify-content-center">
+                  <Col xs={12} md={4}>
+                    <Link
+                      className="text-decoration-none"
+                      to={{
+                        pathname: `/admin/create`,
+                        passedProps: { user: user },
+                      }}
+                    >
+                      <Card style={{ height: 250 }} className=" d-flex ">
+                        <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
+                          <h3>Create quiz</h3>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+                  </Col>
+                  {state.quizzes.map((quiz) => (
+                    <>
+                      <Col key={quiz.key} xs={12} md={4}>
+                        <div data-label="quiz">
+                          <Link
+                            className="text-decoration-none"
+                            to={{
+                              pathname: `/admin/edit/quiz/${quiz.key}/${quiz.quizName}`,
+                              passedProps: { quizName: quiz.quizName },
+                            }}
+                          >
+                            <Card style={{ height: 250 }} className="d-flex">
+                              <Card.Body className="align-items-center d-flex background-mid text-white justify-content-center">
+                                <h3>Edit {quiz.quizName} Quiz</h3>
+                              </Card.Body>
+                            </Card>
+                          </Link>
+                        </div>
+                      </Col>
+                    </>
+                  ))}
+                </Row>
+              </Container>
+            </>
+          ) : (
+            <>
+              <Row className="g-4 mt-2 text-center justify-content-center">
                 <Col xs={12} md={4}>
                   <Link
                     className="text-decoration-none"
@@ -68,55 +110,16 @@ const AdminContent = (props) => {
                     </Card>
                   </Link>
                 </Col>
-                {state.quizzes.map((quiz) => (
-                  <>
-                    <Col key={quiz.key} xs={12} md={4}>
-                      <div data-label="quiz">
-                        <Link
-                          className="text-decoration-none"
-                          to={{
-                            pathname: `/admin/edit/quiz/${quiz.key}/${quiz.quizName}`,
-                            passedProps: { quizName: quiz.quizName },
-                          }}
-                        >
-                          <Card style={{ height: 250 }} className="d-flex">
-                            <Card.Body className="align-items-center d-flex background-mid text-white justify-content-center">
-                              <h3>Edit {quiz.quizName} Quiz</h3>
-                            </Card.Body>
-                          </Card>
-                        </Link>
-                      </div>
-                    </Col>
-                  </>
-                ))}
               </Row>
-            </Container>
-          </>
-        ) : (
-          <>
-            <Row className="g-4 mt-2 text-center justify-content-center">
-              <Col xs={12} md={4}>
-                <Link
-                  className="text-decoration-none"
-                  to={{
-                    pathname: `/admin/create`,
-                    passedProps: { user: user },
-                  }}
-                >
-                  <Card style={{ height: 250 }} className=" d-flex ">
-                    <Card.Body className="align-items-center text-white background-bright  d-flex justify-content-center">
-                      <h3>Create quiz</h3>
-                    </Card.Body>
-                  </Card>
-                </Link>
-              </Col>
-            </Row>
-            <ErrorMessage type="quizzes" />
-          </>
-        )}
-      </Row>
-    </Container>
-  );
+              <ErrorMessage type="quizzes" />
+            </>
+          )}
+        </Row>
+      </Container>
+    );
+  } catch (error) {
+    <ErrorMessage type="admin" e={error} />
+  }               
 };
 
 export default AdminContent;

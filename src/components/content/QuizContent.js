@@ -4,6 +4,7 @@ import firebase from "../../Firebase";
 import CodeBox from "../quiz/CodeBox";
 import SubHeader from "../common/SubHeader";
 import ShowScore from "../quiz/ShowScore";
+import ErrorMessage from "../common/ErrorMessage";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -107,74 +108,78 @@ const QuizContent = (props) => {
     }
   };
 
-  return (
-    <>
-      <Container data-testid="quiz">
-        {!isLoading && (
-          <>
-            <Row className="mt-5">
-              <Col>
-                {showScore ? (
-                  <>
-                    <ShowScore
-                      score={score}
-                      length={questions.length}
-                      incorrectQuestions={incorrectQuestions}
-                    />
-                  </>
-                ) : (
-                  <>
-                    <SubHeader quizName={quizname} type="play" />
-                    <ProgressBar
-                      animated
-                      now={position}
-                      variant="progress"
-                      className="mt-5"
-                    />
+  try {
+    return (
+      <>
+        <Container data-testid="quiz">
+          {!isLoading && (
+            <>
+              <Row className="mt-5">
+                <Col>
+                  {showScore ? (
+                    <>
+                      <ShowScore
+                        score={score}
+                        length={questions.length}
+                        incorrectQuestions={incorrectQuestions}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <SubHeader quizName={quizname} type="play" />
+                      <ProgressBar
+                        animated
+                        now={position}
+                        variant="progress"
+                        className="mt-5"
+                      />
 
-                    <Row className="background-mid border border-white text-white p-4 m-5">
-                      <Col>
-                        <div className="mb-1">
-                          <span>Question {currentQuestion + 1}</span>/
-                          {questions.length}
-                        </div>
-                        <div className="mb-2">
-                          {questions[currentQuestion].questionText}
-                        </div>
-                        {propsCode ? <CodeBox code={propsCode} /> : ""}
-                      </Col>
-                      <Col>
-                        <Stack gap={3} className="m-auto">
-                          {questions[currentQuestion].answerOptions.map(
-                            (answerOption, index) => (
-                              <Button
-                                key={answerOption.key}
-                                className="background-bright"
-                                id={"answerOption" + index}
-                                onClick={() =>
-                                  handleAnswerButtonClick(
-                                    answerOption.isCorrect,
-                                    answerOption.answerText,
-                                    currentQuestion
-                                  )
-                                }
-                              >
-                                {answerOption.answerText}
-                              </Button>
-                            )
-                          )}
-                        </Stack>
-                      </Col>
-                    </Row>
-                  </>
-                )}
-              </Col>
-            </Row>
-          </>
-        )}
-      </Container>
-    </>
-  );
+                      <Row className="background-mid border border-white text-white p-4 m-5">
+                        <Col>
+                          <div className="mb-1">
+                            <span>Question {currentQuestion + 1}</span>/
+                            {questions.length}
+                          </div>
+                          <div className="mb-2">
+                            {questions[currentQuestion].questionText}
+                          </div>
+                          {propsCode ? <CodeBox code={propsCode} /> : ""}
+                        </Col>
+                        <Col>
+                          <Stack gap={3} className="m-auto">
+                            {questions[currentQuestion].answerOptions.map(
+                              (answerOption, index) => (
+                                <Button
+                                  key={answerOption.key}
+                                  className="background-bright"
+                                  id={"answerOption" + index}
+                                  onClick={() =>
+                                    handleAnswerButtonClick(
+                                      answerOption.isCorrect,
+                                      answerOption.answerText,
+                                      currentQuestion
+                                    )
+                                  }
+                                >
+                                  {answerOption.answerText}
+                                </Button>
+                              )
+                            )}
+                          </Stack>
+                        </Col>
+                      </Row>
+                    </>
+                  )}
+                </Col>
+              </Row>
+            </>
+          )}
+        </Container>
+      </>
+    );
+  } catch (error) {
+    <ErrorMessage type="quiz" e={error} />;
+  }
 };
 
 export default QuizContent;

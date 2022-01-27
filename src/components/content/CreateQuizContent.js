@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import firebase from "../../Firebase";
-import Loading from "../common/Loading";
+import ErrorMessage from "../common/ErrorMessage";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -13,7 +13,7 @@ import { useAuth } from "../../authProvider";
 import SubHeader from "../common/SubHeader";
 
 const CreateQuizContent = (props) => {
-  const { loading} = useAuth();
+  const { loading } = useAuth();
   const navigate = useNavigate();
   const [quiz, setQuiz] = useState({
     quizName: "",
@@ -39,13 +39,17 @@ const CreateQuizContent = (props) => {
       });
     navigate(`/admin`);
   };
-  if (!loading) {
+
+  try {
     return (
       <>
-        <Container  className="mt-5">
-          <Row >
-            <SubHeader type="add"/>
-            <Form className="background-mid text-white border border-white p-4" onSubmit={onSubmitQuiz}>
+        <Container className="mt-5">
+          <Row>
+            <SubHeader type="add" />
+            <Form
+              className="background-mid text-white border border-white p-4"
+              onSubmit={onSubmitQuiz}
+            >
               <Form.Group className=" mt-3 mb-3" controlId="quizName">
                 <Form.Control
                   id="addAQuizName"
@@ -67,10 +71,8 @@ const CreateQuizContent = (props) => {
         </Container>
       </>
     );
-  } else {
-    return (
-      <Loading />
-    )
+  } catch (error) {
+    <ErrorMessage type="create" e={error} />;
   }
 };
 

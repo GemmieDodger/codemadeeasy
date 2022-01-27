@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import BlocksElement from "../blockseditor/BlocksElement";
 import SubHeader from "../common/SubHeader";
+import ErrorMessage from "../common/ErrorMessage";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -220,86 +221,89 @@ const BlocksEditor = (props) => {
       clearTimeout(timeout);
     };
   }, [html, css, js, elements]);
+  try {
+    return (
+      <>
+        <Container className="mt-5 text-white">
+          <Row className="g-4 mt-5 text-center justify-content-center"></Row>
+          <SubHeader type="blockseditor" />
+          <Row>
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Col item xs={12} sm={12} md={4}>
+                <BlocksElement
+                  title="HTML SUGGESTIONS"
+                  onChange={setHtml}
+                  elements={elements.suggestionsHtmlData}
+                  key="suggestionsHtmlData"
+                  prefix="suggestionsHtmlData"
+                />
+                <BlocksElement
+                  title="YOUR HTML FILE"
+                  onChange={setHtml}
+                  elements={elements.htmlData}
+                  key="htmlData"
+                  prefix="htmlData"
+                />
+              </Col>
+            </DragDropContext>
 
-  return (
-    <>
-      <Container className="mt-5 text-white">
-        <Row className="g-4 mt-5 text-center justify-content-center"></Row>
-        <SubHeader type="blockseditor" />
-        <Row>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Col item xs={12} sm={12} md={4}>
-              <BlocksElement
-                title="HTML SUGGESTIONS"
-                onChange={setHtml}
-                elements={elements.suggestionsHtmlData}
-                key="suggestionsHtmlData"
-                prefix="suggestionsHtmlData"
-              />
-              <BlocksElement
-                title="YOUR HTML FILE"
-                onChange={setHtml}
-                elements={elements.htmlData}
-                key="htmlData"
-                prefix="htmlData"
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Col item xs={12} sm={12} md={4}>
+                <BlocksElement
+                  title="CSS SUGGESTIONS"
+                  onChange={setCss}
+                  elements={elements.suggestionsCssData}
+                  key="suggestionsCssData"
+                  prefix="suggestionsCssData"
+                />
+                <BlocksElement
+                  title="YOUR CSS FILE"
+                  onChange={setCss}
+                  elements={elements.cssData}
+                  key="cssData"
+                  prefix="cssData"
+                />
+              </Col>
+            </DragDropContext>
+
+            <DragDropContext onDragEnd={onDragEnd}>
+              <Col item xs={12} sm={12} md={4}>
+                <BlocksElement
+                  title="JAVASCRIPT SUGGESTIONS"
+                  onChange={setJs}
+                  elements={elements.suggestionsJavascriptData}
+                  key="suggestionsJavascriptData"
+                  prefix="suggestionsJavascriptData"
+                />
+                <BlocksElement
+                  title="YOUR JAVASCRIPT FILE"
+                  onChange={setJs}
+                  elements={elements.javascriptData}
+                  key="javascriptData"
+                  prefix="javascriptData"
+                />
+              </Col>
+            </DragDropContext>
+          </Row>
+          <Row>
+            <Col className="mt-4">
+              <iframe
+                srcDoc={srcDoc}
+                title="output"
+                sandbox="allow-scripts"
+                width="100%"
+                height="300px"
+                overflow="scroll"
+                className="background-white"
               />
             </Col>
-          </DragDropContext>
-
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Col item xs={12} sm={12} md={4}>
-              <BlocksElement
-                title="CSS SUGGESTIONS"
-                onChange={setCss}
-                elements={elements.suggestionsCssData}
-                key="suggestionsCssData"
-                prefix="suggestionsCssData"
-              />
-              <BlocksElement
-                title="YOUR CSS FILE"
-                onChange={setCss}
-                elements={elements.cssData}
-                key="cssData"
-                prefix="cssData"
-              />
-            </Col>
-          </DragDropContext>
-
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Col item xs={12} sm={12} md={4}>
-              <BlocksElement
-                title="JAVASCRIPT SUGGESTIONS"
-                onChange={setJs}
-                elements={elements.suggestionsJavascriptData}
-                key="suggestionsJavascriptData"
-                prefix="suggestionsJavascriptData"
-              />
-              <BlocksElement
-                title="YOUR JAVASCRIPT FILE"
-                onChange={setJs}
-                elements={elements.javascriptData}
-                key="javascriptData"
-                prefix="javascriptData"
-              />
-            </Col>
-          </DragDropContext>
-        </Row>
-        <Row>
-          <Col className="mt-4">
-            <iframe
-              srcDoc={srcDoc}
-              title="output"
-              sandbox="allow-scripts"
-              width="100%"
-              height="300px"
-              overflow="scroll"
-              className="background-white"
-            />
-          </Col>
-        </Row>
-      </Container>
-    </>
-  );
+          </Row>
+        </Container>
+      </>
+    );
+  } catch (error) {
+    <ErrorMessage type="blocks" e={error} />
+  } 
 };
 
 export default BlocksEditor;
