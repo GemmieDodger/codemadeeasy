@@ -1,0 +1,9 @@
+./watchmanconfig
+./babel.config.js
+./cypress.json
+./README.md
+./documentation
+./__tests__
+./__mocks__
+.vscode
+./cypress
