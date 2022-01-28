@@ -19,6 +19,10 @@ A web application suitable for helping people learn programming. This will be av
 - codemirror
 - heroku
 
+### CSS
+React-bootstrap should be the key implementation
+The government defaults file should also be utilised for blanket app styling.
+
 ## Planning
 
 For reference in external folder. Please see email.
@@ -31,7 +35,7 @@ This code has been deployed using Heroku. I have not used continuous deployment 
 
 *If you receive an error page*, please refresh the URI. It is likely that the app has been put to sleep and needs awakening.
 
-DISCLAIMERS: There is a small chance that this heroku page will not work. I occasionally run into Error R14 (Memory quota exceeded). This will need further research. Please note
+DISCLAIMERS: I occasionally run into Error R14 (Memory quota exceeded). This will need further research, but I have managed to make this more stable by removing Jest, Cypress, some codemirror and styled components. 
 
 Please note that this link works on the 28th January, but will go to sleep after a certain number of weeks and therefore not be able to be accessed at a later date.
 
