@@ -345,7 +345,6 @@ const EditQuestions = (props) => {
               </div>
             </>
           )}
-          <SubHeader quizName={quizname}/>
           <AddQuestion id={id} />
           </Row>
         </Container>
