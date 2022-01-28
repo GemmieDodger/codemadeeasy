@@ -5,6 +5,7 @@ import ErrorMessage from "../common/ErrorMessage";
 
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 
@@ -44,13 +45,14 @@ const CreateQuizContent = (props) => {
     return (
       <>
         <Container className="mt-5">
-          <Row>
+          <Row   className="mt-5 ">
             <SubHeader type="add" />
+            <Col>
             <Form
-              className="background-mid text-white border border-white p-4"
+              className="background-mid text-white border border-white "
               onSubmit={onSubmitQuiz}
             >
-              <Form.Group className=" mt-3 mb-3" controlId="quizName">
+              <Form.Group className=" mt-3 p-1 mb-3" controlId="quizName">
                 <Form.Control
                   id="addAQuizName"
                   as="textarea"
@@ -67,6 +69,7 @@ const CreateQuizContent = (props) => {
                 Create new quiz
               </Button>
             </Form>
+            </Col>
           </Row>
         </Container>
       </>
