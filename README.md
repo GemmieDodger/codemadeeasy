@@ -33,7 +33,7 @@ This code has been deployed using Heroku. I have not used continuous deployment 
 
 DISCLAIMERS: I occasionally run into Error R14 (Memory quota exceeded). This will need further research, but I have managed to make this more stable by removing Jest, Cypress, some codemirror and styled components. 
 
-Please note that this link works on the 28th January, but will go to sleep after a certain number of weeks and therefore not be able to be accessed at a later date.
+Please note that this link works on the 28th January, but Heroku will go to sleep after a certain number of weeks so may need a refresh. It is also likely that at some point I will take this down after 1 month, and therefore will not be able to be accessed at a later date.
 
 ## Useage
 

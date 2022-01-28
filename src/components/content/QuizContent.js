@@ -46,7 +46,7 @@ const QuizContent = (props) => {
       setPropsCode(questions[currentQuestion].code);
       setIsLoading(false);
     } else {
-      setIsLoading(false);
+      setIsLoading(true);
     }
   };
 
@@ -95,8 +95,6 @@ const QuizContent = (props) => {
     }
 
     const nextQuestion = currentQuestion + 1;
-
-    setPropsCode("set next question here to be:");
 
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
