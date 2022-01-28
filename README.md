@@ -3,11 +3,11 @@
 ## Table of Contents
 - [Description](#Description)
 - [Planning](#Planning)
+- [Useage](#Useage)
+- [Build-locally](#Build-locally)
+- [Set-up](#Set-up)
+- [Testing](#Testing)
 - [Deployment](#Deployment)
-- [Useage](Useage)
-- [Build-locally](Build-locally)
-- [Testing](Testing)
-
 
 ## Description
 A web application suitable for helping people learn programming. This will be available as a deployed package for demo purposes. The purpose of the application is to teach anyone the fundamentals of computer programming. This is a concept application that we have been asked to produce and is aimed at absolute beginners and is not be language specific. It should include basic coding concepts and provide an interactive learning experience for the user. Partners require a new and interactive approach to teaching programming. This concept is built for our partners to take it forward. An essential requirement is the ability to practice programming using interactive practice areas. This will include the core concepts that need to be covered within the application. 
@@ -23,19 +23,9 @@ A web application suitable for helping people learn programming. This will be av
 
 For reference in external folder. Please see email.
 
-## Deployment
-
-The deployed version can be accessed via [this link](https://secret-waters-97276.herokuapp.com/ ). 
-
-This code has been deployed using Heroku. I have not used continuous deployment because over the course of this week, it will be updated substantially. My previous experience is that Heroku puts a block on automatic pushes if their quota is exceeded and it is noted that after completion, this code will need to be forked by businesses and adapted. This is a demo.
-
-*If you receive an error page*, please refresh the URI. It is likely that the app has been put to sleep and needs awakening.
-
-DISCLAIMERS: I occasionally run into Error R14 (Memory quota exceeded). This will need further research, but I have managed to make this more stable by removing Jest, Cypress, some codemirror and styled components. 
-
-Please note that this link works on the 28th January, but Heroku will go to sleep after a certain number of weeks so may need a refresh. It is also likely that at some point I will take this down after 1 month, and therefore will not be able to be accessed at a later date.
-
 ## Useage
+
+In We Transfer, please see video Demo Walkthrough.
 
 - A logged out user can: 
   - Play a quiz 
@@ -49,7 +39,7 @@ Please note that this link works on the 28th January, but Heroku will go to slee
   - Delete a quiz question
 
 
-## Build locally
+## Build-locally
 
 - Please fork the repository and clone to your machine
 - Use `npm i` to install dependencies
@@ -60,10 +50,27 @@ Please note that this link works on the 28th January, but Heroku will go to slee
 React-bootstrap should be the key implementation
 The government defaults file should also be utilised for blanket app styling.
 
+## Set-up
+Create a firebase app
+Set up a web app in firebase firestore
+Switch on authentication for both email/password and github
+Github: settings / dev settings
+Add configeration from firebase into firebase.js in your new form
+
+### Admin
+
+Once logged in, an admin should navigate to admin. Click create quiz to add a quiz. Add and update questions within edit section of that newly created quiz (via. admin page).
+
+This data is stored in firebase.
+
+NOTE: Data for blocks is currently stored within the blocks page. This will be resolved at a later date and a task has be raised.
+
 ## Testing
-Please see demo video in 'codemadeeasy/documentation/Testing/TestingUnitAndE2E'.
+In we transfer, please see demo video in 'TestingUnitAndE2E'.
 
 ### E2E
+- Install Cypress + Jest
+  - Note, these were removed to launch on Heroku. 
 DISCLAIMER: For E2E tests to work, currently you need to create a "Test" quiz in production. This is not ideal, but due to the tight timeline it is required. Remember to delete after use.
 
 - npm start
@@ -80,21 +87,22 @@ DISCLAIMER: For E2E tests to work, currently you need to create a "Test" quiz in
 - npm run test
 - View completed unit tests
 
-## End user information
-### New website utilising this template
-Create a firebase app
-Set up a web app in firebase firestore
-Switch on authentication for both email/password and github
-Github: settings / dev settings
-Add configeration from firebase into firebase.js in your new form
+## Deployment
 
-### Admin
+The deployed version can be accessed via [this link](https://secret-waters-97276.herokuapp.com/ ). 
 
-Once logged in, an admin should navigate to admin. Click create quiz to add a quiz. Add and update questions within edit section of that newly created quiz (via. admin page).
+This code has been deployed using Heroku. I have not used continuous deployment because over the course of this week, it will be updated substantially. My previous experience is that Heroku puts a block on automatic pushes if their quota is exceeded and it is noted that after completion, this code will need to be forked by businesses and adapted. This is a demo.
 
-This data is stored in firebase.
+*If you receive an error page*, please refresh the URI. It is likely that the app has been put to sleep and needs awakening.
 
-NOTE: Data for blocks is currently stored within the blocks page. This will be resolved at a later date and a task has be raised.
+DISCLAIMERS: I occasionally run into Error R14 (Memory quota exceeded). This will need further research, but I have managed to make this more stable by removing Jest, Cypress, some codemirror and styled components. 
+
+Please note that this link works on the 28th January, but Heroku will go to sleep after a certain number of weeks so may need a refresh. It is also likely that at some point I will take this down after 1 month, and therefore will not be able to be accessed at a later date.
+
+### To deploy your own app:
+Please use the Heroku [docs](https://devcenter.heroku.com/articles/git)
+In We Transfer, please see video Deployment. 
+
 
 
 
