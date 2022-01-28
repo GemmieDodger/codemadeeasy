@@ -19,10 +19,6 @@ A web application suitable for helping people learn programming. This will be av
 - codemirror
 - heroku
 
-### CSS
-React-bootstrap should be the key implementation
-The government defaults file should also be utilised for blanket app styling.
-
 ## Planning
 
 For reference in external folder. Please see email.
@@ -60,8 +56,13 @@ Please note that this link works on the 28th January, but will go to sleep after
 - Use `npm start` to launch in development mode
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### CSS
+React-bootstrap should be the key implementation
+The government defaults file should also be utilised for blanket app styling.
+
 ## Testing
 Please see demo video in 'codemadeeasy/documentation/Testing/TestingUnitAndE2E'.
+
 ### E2E
 DISCLAIMER: For E2E tests to work, currently you need to create a "Test" quiz in production. This is not ideal, but due to the tight timeline it is required. Remember to delete after use.
 
