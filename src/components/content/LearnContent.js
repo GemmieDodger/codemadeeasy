@@ -34,7 +34,7 @@ const LearnContent = (props) => {
 
     ref.get().then((doc) => {
       if (!doc.exists) {
-        console.log("No such document!");
+        return(<p>Looks like something went wrong</p>)
       }
     });
     const unsubscribe = ref.onSnapshot(onCollectionUpdate);

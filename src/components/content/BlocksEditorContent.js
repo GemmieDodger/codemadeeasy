@@ -137,7 +137,7 @@ const data = {
 };
 
 const BlocksEditor = (props) => {
-  const [elements, setElements] = React.useState(data);
+  const [elements, setElements] = useState(data);
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");

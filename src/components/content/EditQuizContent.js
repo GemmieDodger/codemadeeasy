@@ -129,7 +129,6 @@ const EditQuestions = (props) => {
         return <ErrorMessage e={error} />;
       });
   };
-  console.log(questions);
 
   const { answerOptions, code, questionText, timestamp } = newQuestion;
 

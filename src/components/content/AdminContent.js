@@ -37,7 +37,7 @@ const AdminContent = (props) => {
 
     quizzesRef.get().then((doc) => {
       if (!doc.exists) {
-        console.log("No such document!");
+        return(<p>Looks like something went wrong.</p>)
       }
     });
     const unsubscribe = quizzesRef.onSnapshot(onCollectionUpdate);
