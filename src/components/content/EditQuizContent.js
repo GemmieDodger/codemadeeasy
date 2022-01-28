@@ -16,7 +16,7 @@ import Stack from "react-bootstrap/Stack";
 import { useParams } from "react-router-dom";
 
 const EditQuestions = (props) => {
-  const { id } = useParams();
+  const { id , quizname} = useParams();
   const [quiz, setQuiz] = useState({});
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState({
@@ -137,7 +137,8 @@ const EditQuestions = (props) => {
     return (
       <>
         <Container>
-          <SubHeader type="edit" quizName={quiz.quizname} />
+        <Row className="mt-5">
+          <SubHeader type="edit" quizName={quizname} />
           {show && (
             <>
               <ShowModal
@@ -344,7 +345,9 @@ const EditQuestions = (props) => {
               </div>
             </>
           )}
+          <SubHeader quizName={quizname}/>
           <AddQuestion id={id} />
+          </Row>
         </Container>
       </>
     );

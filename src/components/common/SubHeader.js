@@ -2,6 +2,7 @@ import React from "react";
 
 const SubHeader = (props) => {
   let statement = "";
+  console.log(props.quizName)
   switch (props.type) {
     case "play":
       statement = `You are playing the ${props.quizName} quiz`;
