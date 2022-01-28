@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
-const LandingPage = (props) => {
+const HomeContent = (props) => {
   return (
     <Container className="h-100 mt-5 container">
       <Row className="">
@@ -21,4 +21,4 @@ const LandingPage = (props) => {
   );
 };
 
-export default LandingPage;
+export default HomeContent;
